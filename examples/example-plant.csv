@@ -1,0 +1,55 @@
+code,name,quantity,structure_class,asset_class,legacy_codes,status
+EXPLBS01,Blower station 1,,,,EXPLLL19,active
+EXPLBS01BD01,Blower building,,building.steel-frame,,,active
+EXPLBS01BD01LI01,Building lighting,8,,lighting.indoor,,active
+EXPLBS01BD01SW01,Lighting board,,,switchboard.lighting,,active
+EXPLBS01BD01HV01,Split air conditioner,,,hvac.split-ac,,active
+EXPLBS01BD01FE01,Fire extinguisher 1,,,fire-extinguisher.co2,,active
+EXPLBS01BD01FE02,Fire extinguisher 2,,,fire-extinguisher.dry-powder,,active
+EXPLBS01BW05,Blower 5,,,blower.rotary-lobe,EXPLLL19BW05,active
+EXPLBS01BW05MO01,Blower 5 motor,,,motor.induction-cage-3ph,EXPLLL19BW0502020205,active
+EXPLBS01BW05VF01,Blower 5 drive,,,drive.vfd,,active
+EXPLBS01BW05VA01,Blower 5 discharge valve,,,valve.butterfly,,active
+EXPLBS01BW05VA01AT01,Blower 5 discharge valve actuator,,,actuator.electric-quarter-turn,,active
+EXPLBS01BW05VA02,Blower 5 safety valve,,,valve.pressure-relief,,active
+EXPLBS01BW05PM01,Blower 5 discharge pressure gauge,,,pressure-instrument.gauge,,active
+EXPLBS01VA01,Air header isolation valve,,,valve.butterfly,,active
+EXPLBS01FM01,Air header flow measurement,,,flow-instrument.thermal-mass,,active
+EXPLBS01SW01,Motor control centre,,,switchboard.motor-control-centre,,active
+EXPLBS01CR01,Overhead crane,,,lifting.overhead-travelling-crane,,active
+EXPLSR01,Screening 1,,,,EXPLLL01,active
+EXPLSR01CH01,Coarse screen channel 1,,channel.open-concrete,,,active
+EXPLSR01CH02,Coarse screen channel 2,,channel.open-concrete,,,active
+EXPLSR01GA01,Channel 1 inlet gate,,,gate.penstock,,active
+EXPLSR01GA01AT01,Channel 1 inlet gate actuator,,,actuator.electric-multi-turn,,active
+EXPLSR01GA02,Channel 2 inlet gate,,,gate.penstock,,active
+EXPLSR01SN01,Manual coarse screen,,,screen.manual-bar,,active
+EXPLSR01SN02,Mechanical coarse screen,,,screen.multi-rake-bar,,active
+EXPLSR01SN02MO01,Mechanical coarse screen motor,,,motor.induction-cage-3ph,,active
+EXPLSR01SN02GB01,Mechanical coarse screen gearbox,,,gearbox.helical,,active
+EXPLSR01SN02LP01,Mechanical coarse screen local panel,,,control-panel.local-control-panel,,active
+EXPLSR01SN02LM01,Mechanical coarse screen differential level,,,level-instrument.ultrasonic,,active
+EXPLSR01CV01,Screenings belt conveyor,,,conveyor.belt,,active
+EXPLSR01CV01MO01,Screenings conveyor geared motor,,,motor.geared-motor,,active
+EXPLSR01CP01,Washer compactor,,,screenings-handling.washer-compactor,,active
+EXPLAN01,Anoxic zone 1,,,,EXPLLL08,active
+EXPLAN01BA01,Anoxic basin 1,,civil-basin.rectangular-concrete,,,active
+EXPLAN01BA02,Anoxic basin 2,,civil-basin.rectangular-concrete,,,active
+EXPLAN01MX01,Basin 1 mixer 1,,,mixer.submersible-propeller,,active
+EXPLAN01MX01MO01,Basin 1 mixer 1 motor,,,motor.induction-cage-3ph,,active
+EXPLAN01MX02,Basin 1 mixer 2,,,mixer.submersible-propeller,,active
+EXPLAN01MX03,Basin 2 mixer 1,,,mixer.submersible-propeller,,active
+EXPLAN01MX04,Basin 2 mixer 2,,,mixer.submersible-propeller,,active
+EXPLAN01GA01,Basin 1 inlet gate,,,gate.penstock,,active
+EXPLAN01GA02,Basin 2 inlet gate,,,gate.penstock,,active
+EXPLAN01QM01,Basin 1 ORP analyzer,,,analyzer.orp,,active
+EXPLAN01QM01SE01,Basin 1 ORP probe,,,analyzer.orp,,active
+EXPLDI01,Disinfection 1,,,,EXPLLL06;EXPLLL25,active
+EXPLDI01PK01,Hypochlorite dosing package,,,package.chemical-dosing,EXPLLL06OP01,active
+EXPLDI01PK01TK01,Dosing day tank,,,vessel.polyethylene-tank,,active
+EXPLDI01PK01PU01,Dosing pump 1,,,pump.diaphragm,,active
+EXPLDI01PK01PU02,Dosing pump 2,,,pump.diaphragm,,active
+EXPLDI01PK01PM01,Dosing discharge pressure gauge,,,pressure-instrument.gauge,,active
+EXPLDI01PK01FM01,Dosing flow meter,,,flow-instrument.electromagnetic,EXPLLL06FM010115,active
+EXPLDI01PK01LP01,Dosing package control panel,,,control-panel.local-control-panel,,active
+EXPLDI01BA01,Chlorine contact tank,,civil-basin.rectangular-concrete,,,active
