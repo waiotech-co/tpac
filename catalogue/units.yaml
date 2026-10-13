@@ -1,0 +1,557 @@
+# TPAC unit catalogue.
+# A unit is a physical area of a plant, identified by its primary function.
+# Tokens are two uppercase letters and are unique across the unit and kind catalogues.
+# plant_types: wastewater, water. status: active | provisional | deprecated.
+
+catalogue: units
+version: 0.3.0
+
+families:
+  - id: liquid
+    name: {en: Liquid treatment, fa: خط تصفیه مایع}
+  - id: solids
+    name: {en: Solids treatment, fa: خط لجن}
+  - id: biogas
+    name: {en: Biogas, fa: خط گاز}
+  - id: chemical
+    name: {en: Chemicals, fa: مواد شیمیایی}
+  - id: energy
+    name: {en: Energy, fa: انرژی}
+  - id: utility
+    name: {en: Utilities, fa: تأسیسات عمومی}
+  - id: support
+    name: {en: Support facilities, fa: تأسیسات پشتیبانی}
+
+units:
+
+  # --- Liquid treatment: wastewater -------------------------------------------
+
+  - token: IS
+    name: {en: Inlet structure, fa: سازه ورودی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Receiving chambers, inlet channels, inlet flow measurement and inlet bypass or
+      overflow structures upstream of screening.
+
+  - token: IP
+    name: {en: Influent pumping, fa: ایستگاه پمپاژ ورودی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Raw wastewater lift station: wet wells, lift pumps (including screw lift pumps),
+      their valves and the pump building.
+
+  - token: SR
+    name: {en: Screening, fa: آشغالگیری}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Screen channels, coarse and fine screens, channel gates, screenings conveyors,
+      washers and compactors, and the screening building.
+
+  - token: GR
+    name: {en: Grit and grease removal, fa: دانه‌گیری و چربی‌گیری}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Grit and grease chambers, their bridges and scrapers, grit pumps, grit
+      classifiers, grease handling, and air supply equipment installed at the chambers.
+      Blowers housed in a separate blower building belong to a blower station unit.
+
+  - token: EQ
+    name: {en: Flow equalization, fa: متعادل‌سازی جریان}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Equalization basins and the mixers, aerators and pumps installed for them.
+
+  - token: SG
+    name: {en: Septage receiving, fa: تخلیه لجن تانکرها}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Tanker discharge points, septage screening and septage holding tanks.
+
+  - token: PC
+    name: {en: Primary clarification, fa: ته‌نشینی اولیه}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Primary clarifiers, distribution chambers feeding them, sludge collectors,
+      scum removal and primary sludge withdrawal installed at the clarifiers.
+
+  - token: AX
+    name: {en: Anaerobic zone, fa: ناحیه بی‌هوازی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Anaerobic selector basins and the equipment installed in them.
+
+  - token: AN
+    name: {en: Anoxic zone, fa: ناحیه انوکسیک}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Anoxic basins, their mixers, inlet gates and internal recirculation pumps installed in them.
+
+  - token: AE
+    name: {en: Aeration, fa: هوادهی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Aeration (aerobic) basins, distribution chambers feeding them, in-basin aeration
+      equipment, mixers, and basin inlet and outlet gates. Blowers belong to a blower
+      station unit.
+
+  - token: SB
+    name: {en: Sequencing batch reactor, fa: راکتور ناپیوسته متوالی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: SBR basins, decanters, in-basin aeration and mixing equipment.
+
+  - token: MB
+    name: {en: Membrane bioreactor, fa: بیوراکتور غشایی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: MBR tanks, membrane racks, permeate and cleaning systems.
+
+  - token: TF
+    name: {en: Trickling filter, fa: صافی چکنده}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Trickling filter structures, distributors and recirculation pumps.
+
+  - token: RC
+    name: {en: Rotating biological contactor, fa: دیسک‌های بیولوژیکی چرخان}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: RBC tanks, disc assemblies and their drives.
+
+  - token: AL
+    name: {en: Aerated lagoon, fa: لاگون هوادهی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Aerated lagoons and the aerators and mixers installed on them.
+
+  - token: NP
+    name: {en: Anaerobic pond, fa: برکه بی‌هوازی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Anaerobic ponds and their inlet and outlet structures.
+
+  - token: FP
+    name: {en: Facultative pond, fa: برکه اختیاری}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Facultative ponds and their inlet and outlet structures.
+
+  - token: MP
+    name: {en: Maturation pond, fa: برکه تکمیلی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Maturation (polishing) ponds and their inlet and outlet structures.
+
+  - token: PS
+    name: {en: Settling pond, fa: برکه ته‌نشینی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Settling ponds and their inlet and outlet structures.
+
+  - token: WL
+    name: {en: Constructed wetland, fa: تالاب مصنوعی}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Wetland cells, distribution and collection structures.
+
+  - token: ST
+    name: {en: Septic and Imhoff tanks, fa: مخزن سپتیک و ایمهاف}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Septic tanks, Imhoff tanks and their access structures.
+
+  - token: BS
+    name: {en: Blower station, fa: ایستگاه بلوئر}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      The building or area housing blowers that supply process air, with their
+      headers, valves, and the building itself. Each separate blower building is a
+      separate instance.
+
+  - token: SC
+    name: {en: Secondary clarification, fa: ته‌نشینی ثانویه}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Secondary clarifiers, distribution chambers feeding them, sludge collectors,
+      scum removal and launders.
+
+  - token: RS
+    name: {en: Sludge pumping, fa: ایستگاه پمپاژ لجن}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: >-
+      Stations pumping return, waste or primary sludge: wet wells, pumps, valves and
+      the pump building. Each separate station is a separate instance.
+
+  - token: FL
+    name: {en: Filtration, fa: فیلتراسیون}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      Granular media filters, disc and cloth filters, microstrainers, their valves,
+      gates and filter instrumentation.
+
+  - token: MF
+    name: {en: Membrane filtration, fa: فیلتراسیون غشایی}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: Membrane trains, feed and permeate pumps, cleaning systems.
+
+  - token: AC
+    name: {en: Activated carbon adsorption, fa: جذب کربن فعال}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: Granular activated carbon contactors and carbon dosing systems.
+
+  - token: DF
+    name: {en: Dissolved air flotation, fa: شناورسازی با هوای محلول}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: DAF tanks, saturators, recycle pumps and float removal.
+
+  - token: DI
+    name: {en: Disinfection, fa: گندزدایی}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      Disinfectant storage and dosing, chlorinators, UV and ozone systems, contact
+      tanks and channels, and the disinfection building.
+
+  - token: EP
+    name: {en: Treated water pumping, fa: ایستگاه پمپاژ آب تصفیه‌شده}
+    family: liquid
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      Stations pumping treated effluent or treated water: reuse, irrigation and
+      high-lift pumping, with their wet wells, valves and buildings.
+
+  - token: OF
+    name: {en: Outfall, fa: خروجی و تخلیه پساب}
+    family: liquid
+    plant_types: [wastewater]
+    status: active
+    covers: Effluent channels, final flow measurement and the discharge structure.
+
+  # --- Liquid treatment: water ------------------------------------------------
+
+  - token: IK
+    name: {en: Intake, fa: آبگیر}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Intake structures, intake screens and intake gates.
+
+  - token: RW
+    name: {en: Raw water pumping, fa: پمپاژ آب خام}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Raw water pumps, wet wells and the pump building.
+
+  - token: PO
+    name: {en: Pre-oxidation, fa: پیش‌اکسیداسیون}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Pre-oxidation contact basins and their dosing points.
+
+  - token: CF
+    name: {en: Coagulation and rapid mix, fa: انعقاد و اختلاط سریع}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Rapid mix basins and flash mixers.
+
+  - token: FC
+    name: {en: Flocculation, fa: لخته‌سازی}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Flocculation basins and flocculators.
+
+  - token: CL
+    name: {en: Clarification, fa: زلال‌سازی}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Water clarifiers including lamella, pulsator and sludge blanket types.
+
+  - token: CW
+    name: {en: Clearwell and treated water storage, fa: مخزن آب تصفیه‌شده}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Clearwells, treated water reservoirs and their level and quality instruments.
+
+  - token: BK
+    name: {en: Backwash, fa: شستشوی معکوس}
+    family: liquid
+    plant_types: [water]
+    status: provisional
+    covers: Backwash pumps, air scour blowers housed with them, backwash tanks and recovery basins.
+
+  # --- Solids treatment -------------------------------------------------------
+
+  - token: GT
+    name: {en: Gravity thickening, fa: تغلیظ ثقلی}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: Gravity thickeners and their mechanisms and sludge withdrawal.
+
+  - token: MT
+    name: {en: Mechanical thickening, fa: تغلیظ مکانیکی}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: Thickening machines, their feed pumps, polymer systems and the building.
+
+  - token: AD
+    name: {en: Anaerobic digestion, fa: هاضم بی‌هوازی}
+    family: solids
+    plant_types: [wastewater]
+    status: active
+    covers: Digesters, digester mixing, heating and recirculation, and the digester building.
+
+  - token: AG
+    name: {en: Aerobic digestion, fa: هاضم هوازی}
+    family: solids
+    plant_types: [wastewater]
+    status: active
+    covers: Aerobic digesters and the aeration and mixing equipment installed in them.
+
+  - token: DW
+    name: {en: Dewatering, fa: آبگیری لجن}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      Dewatering machines, their feed pumps, dedicated polymer preparation, cake
+      conveyors and the dewatering building.
+
+  - token: DB
+    name: {en: Drying beds, fa: بستر خشک‌کن لجن}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: Sludge drying beds, their distribution valves and underdrains.
+
+  - token: SS
+    name: {en: Sludge storage, fa: ذخیره لجن}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: Sludge storage tanks and the mixers and pumps installed for them.
+
+  - token: SY
+    name: {en: Sludge yard, fa: محل دپوی لجن}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: Cake storage and stockpile areas.
+
+  - token: RJ
+    name: {en: Reject water handling, fa: مدیریت آب برگشتی}
+    family: solids
+    plant_types: [wastewater, water]
+    status: active
+    covers: Supernatant and filtrate collection and return pumping.
+
+  - token: LS
+    name: {en: Lime stabilization, fa: تثبیت آهکی}
+    family: solids
+    plant_types: [wastewater]
+    status: active
+    covers: Lime storage, lime dosing and mixing equipment for sludge stabilization.
+
+  # --- Biogas -----------------------------------------------------------------
+
+  - token: GH
+    name: {en: Biogas storage, fa: ذخیره بیوگاز}
+    family: biogas
+    plant_types: [wastewater]
+    status: active
+    covers: Gas holders and their safety devices.
+
+  - token: GF
+    name: {en: Biogas flare, fa: مشعل بیوگاز}
+    family: biogas
+    plant_types: [wastewater]
+    status: active
+    covers: Waste gas flares and flame arresters.
+
+  - token: BC
+    name: {en: Biogas conditioning, fa: آماده‌سازی بیوگاز}
+    family: biogas
+    plant_types: [wastewater]
+    status: active
+    covers: Desulphurisation, moisture removal and gas boosters.
+
+  - token: CG
+    name: {en: Cogeneration, fa: تولید همزمان برق و حرارت}
+    family: energy
+    plant_types: [wastewater]
+    status: active
+    covers: Gas engine generator sets, heat recovery and the CHP building.
+
+  # --- Chemicals and odour ----------------------------------------------------
+
+  - token: CS
+    name: {en: Chemical storage and dosing, fa: ذخیره و تزریق مواد شیمیایی}
+    family: chemical
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      Storage and dosing of process chemicals other than disinfectants, where not
+      dedicated to one unit: coagulants, polymer, lime, carbon source, pH adjustment.
+
+  - token: OC
+    name: {en: Odour control, fa: کنترل بو}
+    family: utility
+    plant_types: [wastewater]
+    status: active
+    covers: Odour treatment units, their fans and ducts.
+
+  # --- Energy -----------------------------------------------------------------
+
+  - token: MV
+    name: {en: Medium-voltage substation, fa: پست فشار متوسط}
+    family: energy
+    plant_types: [wastewater, water]
+    status: active
+    covers: MV switchgear, power transformers and the substation building.
+
+  - token: LV
+    name: {en: Main low-voltage switchroom, fa: اتاق تابلو اصلی فشار ضعیف}
+    family: energy
+    plant_types: [wastewater, water]
+    status: active
+    covers: Main LV distribution, power factor correction, central UPS and the switchroom building.
+
+  - token: GN
+    name: {en: Standby generation, fa: برق اضطراری}
+    family: energy
+    plant_types: [wastewater, water]
+    status: active
+    covers: Standby generator sets, fuel storage and the generator building.
+
+  - token: SO
+    name: {en: Solar generation, fa: نیروگاه خورشیدی}
+    family: energy
+    plant_types: [wastewater, water]
+    status: active
+    covers: Photovoltaic arrays, inverters and their switchgear.
+
+  # --- Utilities --------------------------------------------------------------
+
+  - token: UW
+    name: {en: Utility water, fa: آب خدماتی}
+    family: utility
+    plant_types: [wastewater, water]
+    status: active
+    covers: Service and wash water systems, potable water storage and fire water pumps.
+
+  - token: PA
+    name: {en: Plant compressed air, fa: هوای فشرده}
+    family: utility
+    plant_types: [wastewater, water]
+    status: active
+    covers: Instrument and service air compressors, receivers and dryers.
+
+  # --- Support ----------------------------------------------------------------
+
+  - token: AB
+    name: {en: Administration, fa: ساختمان اداری}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: Administration building and its equipment.
+
+  - token: OP
+    name: {en: Operations control, fa: اتاق کنترل}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: A stand-alone control building with SCADA servers and operator stations.
+
+  - token: LB
+    name: {en: Laboratory, fa: آزمایشگاه}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: Laboratory building or rooms and laboratory instruments.
+
+  - token: WS
+    name: {en: Workshop, fa: تعمیرگاه}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: Mechanical, electrical, instrument and civil workshops and their fixed machines.
+
+  - token: WH
+    name: {en: Warehouse, fa: انبار}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: Stores and warehouse buildings.
+
+  - token: VG
+    name: {en: Vehicle garage, fa: پارکینگ و تعمیرگاه خودرو}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: Vehicle parking, washing and service areas.
+
+  - token: EN
+    name: {en: Entrance and gatehouse, fa: نگهبانی و ورودی}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: Gatehouse, site gates, barriers and weighbridge.
+
+  - token: YD
+    name: {en: Site and yard, fa: محوطه}
+    family: support
+    plant_types: [wastewater, water]
+    status: active
+    covers: >-
+      Everything outdoors that belongs to no other unit: yard lighting, lighting
+      towers, site CCTV, perimeter security, yard hydrants and landscaping systems.
