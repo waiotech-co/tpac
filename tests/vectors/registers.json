@@ -1,0 +1,14 @@
+[
+  {"file": "registers/valid-minimal.csv", "plant_type": "wastewater", "rules": []},
+  {"file": "../../examples/example-plant.csv", "plant_type": "wastewater", "rules": []},
+  {"file": "registers/r01-duplicate-code.csv", "plant_type": "wastewater", "rules": ["R-01"]},
+  {"file": "registers/r02-missing-parent.csv", "plant_type": "wastewater", "rules": ["R-02"]},
+  {"file": "registers/r03-quantity-on-individual-kind.csv", "plant_type": "wastewater", "rules": ["R-03"]},
+  {"file": "registers/r04-asset-class-not-allowed.csv", "plant_type": "wastewater", "rules": ["R-04"]},
+  {"file": "registers/r05-structure-class-not-allowed.csv", "plant_type": "wastewater", "rules": ["R-05"]},
+  {"file": "registers/r06-legacy-code-shared.csv", "plant_type": "wastewater", "rules": ["R-06"]},
+  {"file": "registers/r07-two-plant-codes.csv", "plant_type": "wastewater", "rules": ["R-07"]},
+  {"file": "registers/r08-unit-not-defined-for-plant-type.csv", "plant_type": "water", "rules": ["R-08"]},
+  {"file": "registers/r09-missing-name.csv", "plant_type": "wastewater", "rules": ["R-09"]},
+  {"file": "registers/r10-invalid-status.csv", "plant_type": "wastewater", "rules": ["R-10"]}
+]

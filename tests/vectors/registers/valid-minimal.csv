@@ -1,0 +1,6 @@
+code,name,quantity,structure_class,asset_class,legacy_codes,status
+KJBJBS01,Blower station 1,,,,,active
+KJBJBS01BW01,Blower 1,,,blower,OLD-1,active
+KJBJBS01BW01MO01,Blower 1 motor,,,motor.induction-cage-3ph,,active
+KJBJBS01BD01,Building 1,,building,,,active
+KJBJBS01BD01LI01,Building lighting,8,,lighting,,active

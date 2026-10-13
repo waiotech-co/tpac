@@ -1,0 +1,22 @@
+[
+  {"input": "KJBJBS01", "normalized": "KJBJBS01", "rules": []},
+  {"input": "KJBJBS01BW05", "normalized": "KJBJBS01BW05", "rules": []},
+  {"input": "KJBJBS01BW05MO01", "normalized": "KJBJBS01BW05MO01", "rules": []},
+  {"input": "KJBJBS01BW05VA01AT01", "normalized": "KJBJBS01BW05VA01AT01", "rules": []},
+  {"input": "KJBJBS01BD01LI01", "normalized": "KJBJBS01BD01LI01", "rules": []},
+  {"input": "kjbj-bs01-bw05", "normalized": "KJBJBS01BW05", "rules": []},
+  {"input": "KJBJ BS01 BW05_MO01", "normalized": "KJBJBS01BW05MO01", "rules": []},
+  {"input": "KJBJBS۰۱BW۰۵", "normalized": "KJBJBS01BW05", "rules": []},
+  {"input": "KJBJ_BS01$BW05", "normalized": "KJBJBS01$BW05", "rules": ["G-01"]},
+  {"input": "KJBJBS", "normalized": "KJBJBS", "rules": ["G-02"]},
+  {"input": "KJBJBS01BW05MO", "normalized": "KJBJBS01BW05MO", "rules": ["G-02"]},
+  {"input": "1JBJBS01BW05", "normalized": "1JBJBS01BW05", "rules": ["G-03"]},
+  {"input": "KJBJZZ01", "normalized": "KJBJZZ01", "rules": ["G-04"]},
+  {"input": "KJBJB101", "normalized": "KJBJB101", "rules": ["G-04"]},
+  {"input": "KJBJBS00", "normalized": "KJBJBS00", "rules": ["G-05"]},
+  {"input": "KJBJBS01ZZ01", "normalized": "KJBJBS01ZZ01", "rules": ["G-06"]},
+  {"input": "KJBJBS01BW0A", "normalized": "KJBJBS01BW0A", "rules": ["G-06"]},
+  {"input": "KJBJBS01BW00", "normalized": "KJBJBS01BW00", "rules": ["G-07"]},
+  {"input": "KJBJBS01MO01", "normalized": "KJBJBS01MO01", "rules": ["S-01"]},
+  {"input": "KJBJBS01BW05AT01", "normalized": "KJBJBS01BW05AT01", "rules": ["S-02"]}
+]
