@@ -1,0 +1,148 @@
+# Mapping from the Iranian national wastewater equipment coding (MIMS) to TPAC.
+# Source: national coding instruction of the national wastewater maintenance working group
+# (Autumn 1402), unit list "LL" edition.
+# A mapping with several targets, or with `decide: site`, needs a decision per plant.
+
+mapping: iran-mims
+version: 0.1.0
+
+national_code_structure: >-
+  company(2) plant(2) unit-category(2) unit(2) equipment-token(2) equipment-number(2)
+  group(2) class(2) type(2) device-number(2)
+
+units:
+  LL01: {to: SR, name: آشغالگیر}
+  LL02: {to: GR, name: دانه گیر و چربی گیر}
+  LL03: {to: PC, name: ته نشینی اولیه}
+  LL04: {to: AE, name: هوادهی}
+  LL05: {to: SC, name: ته نشینی ثانویه}
+  LL06: {to: DI, name: گندزدایی}
+  LL07: {to: AE, name: اروبیک}
+  LL08: {to: AN, name: انوکسیک}
+  LL09: {to: SB, name: حوض SBR}
+  LL10: {to: NP, name: برکه بی هوازی}
+  LL11: {to: FP, name: برکه اختیاری}
+  LL12: {to: MP, name: برکه تکمیلی}
+  LL13: {to: AL, name: لاگون هوادهی}
+  LL14: {to: PS, name: برکه ته نشینی}
+  LL15: {to: ST, name: مخزن سپتیک}
+  LL16: {to: WL, name: حوض Wetland}
+  LL17: {to: BS, name: ساختمان بلوئرهای دانه گیر, note: separate BS instance when in its own building; GR when installed at the chambers}
+  LL18: {to: GR, name: ساختمان جداسازی دانه و چربی}
+  LL19: {to: BS, name: ساختمان بلوئرهای هوادهی}
+  LL20: {to: RS, name: ساختمان پمپاژ لجن اولیه}
+  LL21: {to: RS, name: ساختمان پمپاژ لجن ثانویه}
+  LL22: {to: FL, name: میکرواسترینر}
+  LL23: {to: GN, name: ساختمان دیزل ژنراتور}
+  LL24: {to: IP, name: ساختمان پمپاژ ورودی}
+  LL25: {to: DI, name: حوض تثبیت کلر, note: contact tank belongs to the disinfection unit}
+  LL26: {to: MV, name: ساختمان ترانسفورماتور}
+  LL27: {to: [LV, MV], decide: site, name: ساختمان تابلو برق, note: MV boards go to MV, LV boards to LV}
+  LL28: {to: EP, name: ساختمان پمپاژ فضای سبز}
+  LL29: {to: RS, name: ساختمان پمپاژ لجن فعال}
+  LL30: {to: [AN, AE, RS], decide: site, name: ساختمان پمپاژ بازگردش داخلی لجن, note: by where the recirculation pumps are installed}
+  SL01: {to: GT, name: تغلیظ کننده ثقلی}
+  SL02: {to: MT, name: تغلیظ کننده مکانیکی}
+  SL03: {to: AG, name: هاضم هوازی}
+  SL04: {to: AD, name: هاضم بی هوازی}
+  SL05: {to: DW, name: آبگیری از لجن}
+  GL01: {to: BC, name: برجهای سولفورزدایی}
+  GL02: {to: GH, name: مخزن جمع آوری گاز}
+  GL03: {to: GF, name: مشعل گاز}
+  GL04: {to: CG, name: کوژنراتور}
+  PH01: {to: [GN, CG], decide: site, name: نیروگاه برق}
+  PH02: {to: SO, name: نیروگاه خورشیدی}
+  LO01: {to: WH, name: انبار اصلی}
+  LO02: {to: WH, name: انبار فرعی شماره ۱}
+  LO03: {to: WH, name: انبار فرعی شماره ۲}
+  SE01: {to: AB, name: اداری}
+  SE02: {to: LB, name: آزمایشگاه}
+  SE03: {to: YD, name: محوطه}
+  SE04: {to: WS, name: تعمیرگاه اصلی}
+  SE05: {to: WS, name: تعمیرگاه برق}
+  SE06: {to: WS, name: تعمیرگاه مکانیک}
+  SE07: {to: WS, name: تعمیرگاه ابزاردقیق}
+  SE08: {to: WS, name: تعمیرگاه سازه}
+
+equipment_tokens:
+  CS: {to: SN, name: آشغالگیر دهانه درشت}
+  TS: {to: SN, name: آشغالگیر دهانه ریز}
+  BR: {to: SN, name: ربات آشغالگیر دهانه درشت}
+  FR: {to: SN, name: ربات آشغالگیر دهانه ریز}
+  CV: {to: CV, name: اسکرو کانوایر}
+  DP: {to: PU, name: پمپ زهکش}
+  AP: {to: PU, name: پمپ ضد اسید}
+  PS: {to: CP, name: اسکرو پرس}
+  MC: {to: MC, name: خردکن آشغال}
+  SC: {to: SM, name: پل دانه گیر}
+  GP: {to: PU, name: پمپ انتقال دانه}
+  SP: {to: PU, name: پمپ انتقال گریس}
+  GG: {to: GA, name: دریچه های انتقال دانه}
+  SG: {to: GA, name: دریچه های انتقال گریس}
+  GT: {to: BA, name: حوضچه های دانه گیر}
+  CF: {to: GC, name: سند کلاسیفایر}
+  BW: {to: BW, name: بلوئر}
+  CP: {to: PU, name: اسکرو پمپ}
+  IG: {to: GA, name: دریچه های ورودی}
+  OG: {to: GA, name: دریچه های خروجی}
+  BG: {to: GA, name: دریچه های BYPASS}
+  HS: {to: GC, name: هیدروسیکلون}
+  SS: {to: TK, name: سندسیلو}
+  FM: {to: FM, name: دبی سنج}
+  LM: {to: LM, name: سطح سنج}
+  FS: {to: SK, name: اسکیمر}
+  MX: {to: MX, name: الکترومیکسر}
+  CB: {to: CV, name: بلت کانوایر}
+  CR: {to: CR, name: جرثقیل}
+  LS: {to: SM, name: پل طولی ته نشینی}
+  RS: {to: SM, name: پل عرضی ته نشینی}
+  ST: {to: BA, name: حوضچه های ته نشینی}
+  DT: {to: CM, name: حوضچه مقسم}
+  LT: {to: LT, name: برج روشنایی}
+  AT: {to: BA, name: حوضچه های هوادهی}
+  DM: {to: QM, name: DO متر}
+  PM: {to: QM, name: PH متر, note: national PM is a pH meter; TPAC PM is pressure measurement}
+  OM: {to: QM, name: اندازه گیر ORP}
+  LP: {to: PU, name: پمپ سیرکولاسیون}
+  UP: {to: PU, name: پمپ انتقال لجن}
+  SM: {to: MX, name: الکترومیکسر مستغرق}
+  EV: {to: VA, name: شیر برقی, note: the actuator becomes a child AT}
+  AF: {to: DG, name: شناور هوادهی}
+  OP: {to: [PU, PK], decide: site, name: دوزینگ پمپ, note: PK when supplied as a skid}
+  CM: {to: QM, name: کلر سنج}
+  UV: {to: UV, name: دستگاه UV}
+  LW: {to: UV, name: سیستم شستشوی لامپ های UV, note: part of the UV system}
+  XM: {to: null, name: لوکس متر, note: portable instrument, asset without position}
+  SL: {to: SP, name: نمونه بردار}
+  SB: {to: PK, name: اسکرابر}
+  BT: {to: BA, name: حوضچه های اروبیک}
+  KT: {to: BA, name: حوضچه های انوکسیک}
+  DK: {to: DC, name: دکانتر}
+  SK: {to: TK, name: سپتیک}
+  EF: {to: FN, name: الکتروفن}
+  CL: {to: HV, name: کولر گازی}
+  CC: {to: CC, name: دوربین مدار بسته}
+  CO: {to: CO, name: کمپرسور}
+  AZ: {to: QM, name: آنالایزر}
+  MV: {to: VA, name: شیر گیربکس دار, note: the gear operator becomes a child AT}
+  GR: {to: GE, name: ژنراتور}
+  WP: {to: PU, name: پمپ انتقال فاضلاب}
+  TF: {to: TR, name: ترانسفورماتور}
+  TP: {to: PU, name: پمپ انتقال پساب}
+  BA: {to: AK, name: دزدگیر}
+  FA: {to: FA, name: سیستم اعلام حریق}
+  AS: {to: AK, name: سیستم اعلام حضور}
+  IC: {to: NE, name: سیستم اتصال به اینترنت}
+  TA: {to: TK, name: مخزن}
+
+groups:
+  "01": {name: مکانیکی, to: [mechanical, flow-control], note: class 01.10 (actuators) maps to flow-control}
+  "02": {name: الکتریکی, to: [electrical]}
+  "03": {name: الکترونیکی، اتوماسیون و ابزار دقیق, to: [instrumentation]}
+  "04": {name: ارتباطی و انتقال اطلاعات, to: [ict]}
+  "05": {name: آزمایشگاهی, to: [laboratory]}
+  "06": {name: ایمنی, to: [safety]}
+  "07": {name: ابزارآلات, to: [mechanical, mobile], note: fixed cranes map to mechanical.lifting; hand tools are not positions}
+  "08": {name: ماشین آلات, to: [mobile]}
+  "09": {name: سازه, to: [civil], note: gates coded under structures map to flow-control.gate}
+  "10": {name: شیرآلات, to: [flow-control]}

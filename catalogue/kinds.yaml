@@ -1,0 +1,890 @@
+# TPAC kind catalogue.
+# A kind names the role of a position: what sort of thing is installed there.
+# Kinds are named by function class, never by process service: a return-sludge pump
+# and a raw-water pump are both PU; the unit says which service it is in.
+#
+# placement:   where a position of this kind may appear.
+#              unit   = directly under a unit (an equipment position)
+#              parent = as a child of another position whose kind lists it in `children`
+# children:    the kinds that may appear as children of this kind. A child exists only
+#              to make its parent work (drive, power, control, protect, monitor, support
+#              or serve it). See spec/03-placement-rules.md.
+# population:  true when one position may stand for a group of identical items (quantity > 1).
+# asset_classes:     classification classes allowed for the asset installed in the position.
+# structure_classes: civil classes recorded on the position itself (structures are not assets).
+
+catalogue: kinds
+version: 0.3.0
+
+families:
+  - id: structure
+    name: {en: Structures, fa: سازه‌ها}
+  - id: process
+    name: {en: Process machinery, fa: ماشین‌آلات فرایندی}
+  - id: flow-control
+    name: {en: Valves and gates, fa: شیرآلات و دریچه‌ها}
+  - id: electrical
+    name: {en: Electrical, fa: برق}
+  - id: instrumentation
+    name: {en: Instrumentation and control, fa: ابزار دقیق و کنترل}
+  - id: ict
+    name: {en: Communication and IT, fa: ارتباطات و فناوری اطلاعات}
+  - id: building-services
+    name: {en: Building services, fa: تأسیسات ساختمان}
+  - id: safety
+    name: {en: Safety and fire, fa: ایمنی و آتش‌نشانی}
+  - id: laboratory
+    name: {en: Laboratory, fa: آزمایشگاه}
+  - id: lifting
+    name: {en: Lifting and handling, fa: بالابر و جابجایی}
+  - id: workshop
+    name: {en: Workshop, fa: تعمیرگاه}
+
+building_services: [LI, SW, HV, FN, DR, EL, ER, FE, FH, FX, FA, EW, FK]
+
+kinds:
+
+  # --- Structures -------------------------------------------------------------
+
+  - token: BA
+    name: {en: Basin, fa: حوض}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [civil-basin]
+    children: []
+    definition: >-
+      An open civil basin in which a process takes place: aeration, anoxic,
+      clarifier, thickener, contact, equalization, SBR or grit basin.
+
+  - token: TK
+    name: {en: Tank or vessel, fa: مخزن}
+    family: structure
+    placement: [unit, parent]
+    population: false
+    asset_classes: [vessel]
+    structure_classes: [civil-tank]
+    children: []
+    definition: >-
+      A container for storing liquid, sludge, gas, air or chemicals. A concrete tank
+      is a structure; a prefabricated steel, GRP or polyethylene tank or pressure
+      vessel is an asset installed in the position.
+
+  - token: HS
+    name: {en: Hardstanding, fa: سکو و محوطه‌سازی}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [pad]
+    children: []
+    definition: A paved storage pad, plant road or platform that is maintained as a structure.
+
+  - token: CH
+    name: {en: Channel, fa: کانال}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [channel]
+    children: []
+    definition: An open or covered flow channel, flume or launder.
+
+  - token: CM
+    name: {en: Chamber, fa: حوضچه و اتاقک}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [chamber]
+    children: []
+    definition: >-
+      A closed or small civil chamber: distribution chamber, wet well, valve pit,
+      inspection chamber or manhole inside the plant fence.
+
+  - token: PD
+    name: {en: Pond, fa: برکه}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [pond]
+    children: []
+    definition: An earthen pond, lagoon or wetland cell.
+
+  - token: BE
+    name: {en: Bed, fa: بستر}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [bed]
+    children: []
+    definition: A sludge drying bed cell or reed bed cell.
+
+  - token: BD
+    name: {en: Building, fa: ساختمان}
+    family: structure
+    placement: [unit]
+    population: false
+    asset_classes: []
+    structure_classes: [building]
+    children: [LI, SW, HV, FN, DR, EL, ER, FE, FH, FX, FA, EW, FK]
+    definition: >-
+      A building or roofed enclosure. Its children are the building services that
+      exist for the building itself.
+
+  # --- Process machinery ------------------------------------------------------
+
+  - token: PU
+    name: {en: Pump, fa: پمپ}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [pump]
+    structure_classes: []
+    children: [MO, EG, GB, VF, LP, VA, GA, FB, PU, PM, TM, FM]
+    definition: >-
+      A pump set. The installed asset is the pump; its driver, gearbox, drive,
+      local panel and dedicated valves and gauges are children.
+
+  - token: BW
+    name: {en: Blower, fa: بلوئر}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [blower]
+    structure_classes: []
+    children: [MO, GB, VF, LP, VA, PU, PM, TM, FM, FN]
+    definition: A blower set supplying process air.
+
+  - token: CO
+    name: {en: Compressor, fa: کمپرسور}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [compressor]
+    structure_classes: []
+    children: [MO, VF, LP, VA, PU, PM, TM, TK]
+    definition: An air or gas compressor set, with its dedicated receiver.
+
+  - token: FN
+    name: {en: Fan, fa: فن}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [fan]
+    structure_classes: []
+    children: [MO, VF, LP]
+    definition: A ventilation, exhaust or process fan.
+
+  - token: MX
+    name: {en: Mixer, fa: میکسر}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [mixer]
+    structure_classes: []
+    children: [MO, GB, VF, LP]
+    definition: A mixer or flocculator installed in a basin, tank or channel.
+
+  - token: SA
+    name: {en: Surface aerator, fa: هواده سطحی}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [aerator]
+    structure_classes: []
+    children: [MO, GB, VF, LP]
+    definition: A mechanical surface or submerged aerator.
+
+  - token: DG
+    name: {en: Diffuser grid, fa: شبکه دیفیوزر}
+    family: process
+    placement: [unit]
+    population: true
+    asset_classes: [diffuser]
+    structure_classes: []
+    children: [VA]
+    definition: >-
+      The diffusers of one aeration grid, held as one position with a quantity.
+      The isolation valve of the grid is its child.
+
+  - token: SN
+    name: {en: Screen, fa: آشغالگیر}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [screen]
+    structure_classes: []
+    children: [MO, GB, VF, LP, HP, LM, VA]
+    definition: A manual or mechanical screen, including its rake or cleaning mechanism.
+
+  - token: MC
+    name: {en: Grinder, fa: خردکن}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [grinder]
+    structure_classes: []
+    children: [MO, GB, LP]
+    definition: An in-channel grinder, comminutor or inline macerator.
+
+  - token: CP
+    name: {en: Compactor or press, fa: کمپکتور و پرس}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [screenings-handling]
+    structure_classes: []
+    children: [MO, GB, LP, VA]
+    definition: A screenings or grit washer, compactor or screw press.
+
+  - token: CV
+    name: {en: Conveyor, fa: نوار نقاله و کانوایر}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [conveyor]
+    structure_classes: []
+    children: [MO, GB, VF, LP]
+    definition: A belt, screw, chain or bucket conveyor.
+
+  - token: GC
+    name: {en: Grit classifier, fa: کلاسیفایر دانه}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [grit-equipment]
+    structure_classes: []
+    children: [MO, GB, LP]
+    definition: A grit classifier, grit washer or hydrocyclone.
+
+  - token: SM
+    name: {en: Sludge collector, fa: مکانیزم جمع‌آوری لجن}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [sludge-collector]
+    structure_classes: []
+    children: [MO, GB, VF, LP, PU, VA]
+    definition: >-
+      The sludge or grit collecting mechanism of one basin: travelling bridge,
+      rotating scraper, chain-and-flight or suction collector, including the pumps
+      and skimmers carried on it.
+
+  - token: SK
+    name: {en: Scum skimmer, fa: کفگیر}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [scum-removal]
+    structure_classes: []
+    children: [MO, GB, LP]
+    definition: A scum or grease removal device that is not carried on a sludge collector.
+
+  - token: DC
+    name: {en: Decanter, fa: دکانتور}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [decanter]
+    structure_classes: []
+    children: [MO, AT, LP, VA]
+    definition: A decanting device of a batch reactor.
+
+  - token: SX
+    name: {en: Sludge separation machine, fa: دستگاه آبگیری و تغلیظ لجن}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [sludge-separation]
+    structure_classes: []
+    children: [MO, GB, VF, LP, PU, CO, HP, VA, PM]
+    definition: >-
+      A thickening or dewatering machine: belt press, centrifuge, screw press, drum
+      or belt thickener, filter press.
+
+  - token: PK
+    name: {en: Package unit, fa: پکیج}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [package]
+    structure_classes: []
+    children: [PU, BW, MX, TK, VA, FN, CO, CV, SN, FB, MO, GB, VF, LP, HX, FM, LM, PM, TM, QM]
+    definition: >-
+      A skid or packaged system supplied and operated as one unit: chemical dosing,
+      polymer preparation, compressed air, odour control, biogas treatment.
+      Everything mounted on the package is its child.
+
+  - token: DZ
+    name: {en: Disinfection generator, fa: دستگاه تولید و تزریق گندزدا}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [disinfection-equipment]
+    structure_classes: []
+    children: [LP, VA, FN, TK, PU]
+    definition: A gas chlorinator, hypochlorite generator, chlorine dioxide or ozone generator.
+
+  - token: UV
+    name: {en: UV system, fa: سیستم فرابنفش}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [uv-system]
+    structure_classes: []
+    children: [LP, QM, HP]
+    definition: One UV reactor or one open-channel UV bank, with its cleaning system.
+
+  - token: FB
+    name: {en: Filter, fa: فیلتر}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [filter]
+    structure_classes: []
+    children: [VA, GA, LM, PM, FM, QM, MO, GB, LP]
+    definition: >-
+      One filter cell or filter unit: gravity or pressure media filter, disc or cloth
+      filter, drum filter, self-cleaning strainer.
+
+  - token: MR
+    name: {en: Membrane rack, fa: رک غشایی}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [membrane]
+    structure_classes: []
+    children: [VA, PM, FM, QM, LP]
+    definition: One membrane rack, cassette group or pressure train.
+
+  - token: HX
+    name: {en: Heat exchanger or boiler, fa: مبدل حرارتی و دیگ}
+    family: process
+    placement: [unit, parent]
+    population: false
+    asset_classes: [heat-exchanger, boiler]
+    structure_classes: []
+    children: [PU, VA, TM, PM, LP]
+    definition: A process heat exchanger or a hot water or steam boiler.
+
+  - token: FR
+    name: {en: Flare, fa: مشعل}
+    family: process
+    placement: [unit]
+    population: false
+    asset_classes: [flare]
+    structure_classes: []
+    children: [LP, VA, TM]
+    definition: A waste gas flare with its burner, igniter and flame arrester.
+
+  - token: GE
+    name: {en: Generator set, fa: مولد برق}
+    family: electrical
+    placement: [unit]
+    population: false
+    asset_classes: [generator-set]
+    structure_classes: []
+    children: [LP, TK, PU, FN, TM, PM, SW]
+    definition: >-
+      An engine-generator set, standby or cogeneration, with its day tank, fuel
+      pump and control panel.
+
+  - token: EG
+    name: {en: Engine, fa: موتور احتراقی}
+    family: process
+    placement: [parent]
+    population: false
+    asset_classes: [engine]
+    structure_classes: []
+    children: []
+    definition: A combustion engine driving a pump or other machine (not a generator set).
+
+  - token: HP
+    name: {en: Hydraulic power unit, fa: یونیت هیدرولیک}
+    family: process
+    placement: [parent]
+    population: false
+    asset_classes: [hydraulic-unit]
+    structure_classes: []
+    children: []
+    definition: A hydraulic power pack dedicated to one machine.
+
+  - token: CR
+    name: {en: Crane or hoist, fa: جرثقیل و بالابر}
+    family: lifting
+    placement: [unit]
+    population: false
+    asset_classes: [lifting]
+    structure_classes: []
+    children: [MO, LP]
+    definition: A fixed overhead crane, gantry, jib, monorail or hoist.
+
+  # --- Valves and gates -------------------------------------------------------
+
+  - token: VA
+    name: {en: Valve, fa: شیر}
+    family: flow-control
+    placement: [unit, parent]
+    population: true
+    asset_classes: [valve]
+    structure_classes: []
+    children: [AT, LP]
+    definition: Any valve. Its actuator and local control station are its children.
+
+  - token: GA
+    name: {en: Gate, fa: دریچه}
+    family: flow-control
+    placement: [unit, parent]
+    population: false
+    asset_classes: [gate]
+    structure_classes: []
+    children: [AT, LP]
+    definition: A penstock, sluice gate, slide gate, weir gate, flap gate or stop log.
+
+  - token: AT
+    name: {en: Actuator, fa: عملگر}
+    family: flow-control
+    placement: [parent]
+    population: false
+    asset_classes: [actuator]
+    structure_classes: []
+    children: []
+    definition: The actuator or gear operator of a valve, gate or decanter.
+
+  # --- Electrical -------------------------------------------------------------
+
+  - token: MO
+    name: {en: Motor, fa: الکتروموتور}
+    family: electrical
+    placement: [parent]
+    population: false
+    asset_classes: [motor]
+    structure_classes: []
+    children: []
+    definition: An electric motor driving its parent. An integral geared motor is one motor.
+
+  - token: GB
+    name: {en: Gearbox, fa: گیربکس}
+    family: electrical
+    placement: [parent]
+    population: false
+    asset_classes: [gearbox]
+    structure_classes: []
+    children: []
+    definition: A separate gearbox between a driver and its parent machine.
+
+  - token: VF
+    name: {en: Drive or starter, fa: درایو و راه‌انداز}
+    family: electrical
+    placement: [parent]
+    population: false
+    asset_classes: [drive]
+    structure_classes: []
+    children: []
+    definition: >-
+      The variable frequency drive, soft starter or starter dedicated to one machine,
+      wherever it is mounted.
+
+  - token: LP
+    name: {en: Local control panel, fa: تابلو کنترل محلی}
+    family: electrical
+    placement: [parent]
+    population: false
+    asset_classes: [control-panel]
+    structure_classes: []
+    children: []
+    definition: A local control panel or local control station dedicated to one machine.
+
+  - token: SW
+    name: {en: Switchboard, fa: تابلو برق}
+    family: electrical
+    placement: [unit, parent]
+    population: false
+    asset_classes: [switchboard]
+    structure_classes: []
+    children: [EM]
+    definition: >-
+      One switchboard line-up sharing a busbar: MV switchgear, ring main unit, main
+      distribution board, motor control centre or distribution board. Its cubicles and
+      feeders are parts of the switchboard, not positions. A board serving only one
+      building is a child of the building.
+
+  - token: TR
+    name: {en: Transformer, fa: ترانسفورماتور}
+    family: electrical
+    placement: [unit]
+    population: false
+    asset_classes: [transformer]
+    structure_classes: []
+    children: [FN, TM]
+    definition: A power or distribution transformer.
+
+  - token: UP
+    name: {en: UPS or DC system, fa: یو پی اس و سیستم DC}
+    family: electrical
+    placement: [unit]
+    population: false
+    asset_classes: [ups]
+    structure_classes: []
+    children: []
+    definition: An uninterruptible power supply or battery and charger system.
+
+  - token: PF
+    name: {en: Capacitor bank, fa: بانک خازنی}
+    family: electrical
+    placement: [unit]
+    population: false
+    asset_classes: [capacitor-bank]
+    structure_classes: []
+    children: []
+    definition: A power factor correction bank.
+
+  - token: LI
+    name: {en: Lighting, fa: روشنایی}
+    family: building-services
+    placement: [unit, parent]
+    population: true
+    asset_classes: [lighting]
+    structure_classes: []
+    children: []
+    definition: >-
+      Luminaires of one building or one outdoor area, normally held as one position
+      with a quantity.
+
+  - token: LT
+    name: {en: Lighting tower, fa: برج روشنایی}
+    family: electrical
+    placement: [unit]
+    population: false
+    asset_classes: [lighting-tower]
+    structure_classes: []
+    children: [MO, LP]
+    definition: A lighting mast or tower, with its lamps and lowering gear.
+
+  - token: ER
+    name: {en: Earthing system, fa: سیستم ارت}
+    family: electrical
+    placement: [unit, parent]
+    population: false
+    asset_classes: [earthing]
+    structure_classes: []
+    children: []
+    definition: An earthing or lightning protection system tested as one.
+
+  - token: PV
+    name: {en: Solar array, fa: آرایه خورشیدی}
+    family: electrical
+    placement: [unit]
+    population: true
+    asset_classes: [solar]
+    structure_classes: []
+    children: [IV]
+    definition: A photovoltaic array or string group.
+
+  - token: IV
+    name: {en: Inverter, fa: اینورتر}
+    family: electrical
+    placement: [parent]
+    population: false
+    asset_classes: [inverter]
+    structure_classes: []
+    children: []
+    definition: The inverter of a solar array.
+
+  - token: EM
+    name: {en: Energy meter, fa: کنتور انرژی}
+    family: electrical
+    placement: [unit, parent]
+    population: false
+    asset_classes: [energy-meter]
+    structure_classes: []
+    children: []
+    definition: An electricity, gas or heat energy meter.
+
+  # --- Instrumentation and control --------------------------------------------
+
+  - token: FM
+    name: {en: Flow measurement, fa: اندازه‌گیری دبی}
+    family: instrumentation
+    placement: [unit, parent]
+    population: false
+    asset_classes: [flow-instrument]
+    structure_classes: []
+    children: [SE]
+    definition: A flow meter or flow measuring loop. The installed asset is the meter or transmitter.
+
+  - token: LM
+    name: {en: Level measurement, fa: اندازه‌گیری سطح}
+    family: instrumentation
+    placement: [unit, parent]
+    population: false
+    asset_classes: [level-instrument]
+    structure_classes: []
+    children: [SE]
+    definition: A level transmitter, level switch or level gauge.
+
+  - token: PM
+    name: {en: Pressure measurement, fa: اندازه‌گیری فشار}
+    family: instrumentation
+    placement: [unit, parent]
+    population: false
+    asset_classes: [pressure-instrument]
+    structure_classes: []
+    children: [SE]
+    definition: A pressure transmitter, pressure switch or pressure gauge.
+
+  - token: TM
+    name: {en: Temperature measurement, fa: اندازه‌گیری دما}
+    family: instrumentation
+    placement: [unit, parent]
+    population: false
+    asset_classes: [temperature-instrument]
+    structure_classes: []
+    children: [SE]
+    definition: A temperature transmitter, switch or thermometer.
+
+  - token: QM
+    name: {en: Quality analyzer, fa: آنالایزر کیفی}
+    family: instrumentation
+    placement: [unit, parent]
+    population: false
+    asset_classes: [analyzer]
+    structure_classes: []
+    children: [SE]
+    definition: >-
+      An online water or sludge quality analyzer. The installed asset is the analyzer
+      or controller; its probes are children.
+
+  - token: GD
+    name: {en: Gas detector, fa: دتکتور گاز}
+    family: instrumentation
+    placement: [unit]
+    population: false
+    asset_classes: [gas-detector]
+    structure_classes: []
+    children: [SE]
+    definition: A fixed gas detector for toxic, flammable or oxygen-deficient atmospheres.
+
+  - token: SE
+    name: {en: Sensor, fa: سنسور}
+    family: instrumentation
+    placement: [parent]
+    population: false
+    asset_classes: [analyzer, flow-instrument, level-instrument, pressure-instrument, temperature-instrument, gas-detector]
+    structure_classes: []
+    children: []
+    definition: A separately replaceable sensor or probe of an instrument.
+
+  - token: PL
+    name: {en: Controller, fa: کنترلر}
+    family: instrumentation
+    placement: [unit]
+    population: false
+    asset_classes: [controller]
+    structure_classes: []
+    children: []
+    definition: A PLC, RTU, remote I/O station, HMI panel or data logger.
+
+  - token: SP
+    name: {en: Sampler, fa: نمونه‌بردار}
+    family: instrumentation
+    placement: [unit]
+    population: false
+    asset_classes: [sampler]
+    structure_classes: []
+    children: []
+    definition: A fixed automatic sampler.
+
+  # --- Communication and IT ---------------------------------------------------
+
+  - token: IT
+    name: {en: Computer, fa: رایانه و سرور}
+    family: ict
+    placement: [unit]
+    population: false
+    asset_classes: [computer]
+    structure_classes: []
+    children: []
+    definition: A fixed workstation, operator station, server or industrial PC.
+
+  - token: NE
+    name: {en: Network equipment, fa: تجهیزات شبکه}
+    family: ict
+    placement: [unit, parent]
+    population: false
+    asset_classes: [network]
+    structure_classes: []
+    children: []
+    definition: A network switch, router, firewall, radio link or modem.
+
+  - token: CC
+    name: {en: CCTV camera, fa: دوربین مداربسته}
+    family: ict
+    placement: [unit]
+    population: false
+    asset_classes: [cctv]
+    structure_classes: []
+    children: []
+    definition: A fixed, PTZ or panoramic camera.
+
+  - token: VR
+    name: {en: Video recorder, fa: دستگاه ضبط تصویر}
+    family: ict
+    placement: [unit]
+    population: false
+    asset_classes: [video-recorder]
+    structure_classes: []
+    children: []
+    definition: An NVR or DVR, with its monitors.
+
+  - token: TW
+    name: {en: Telecom tower, fa: دکل مخابراتی}
+    family: ict
+    placement: [unit]
+    population: false
+    asset_classes: [telecom-tower]
+    structure_classes: []
+    children: [NE]
+    definition: A radio or telecom mast with the radio equipment mounted on it.
+
+  - token: AK
+    name: {en: Security system, fa: سیستم امنیتی}
+    family: ict
+    placement: [unit]
+    population: false
+    asset_classes: [security-system]
+    structure_classes: []
+    children: []
+    definition: Access control, intrusion alarm, attendance or intercom system.
+
+  # --- Building services ------------------------------------------------------
+
+  - token: HV
+    name: {en: HVAC unit, fa: سیستم سرمایش و گرمایش}
+    family: building-services
+    placement: [unit, parent]
+    population: false
+    asset_classes: [hvac]
+    structure_classes: []
+    children: []
+    definition: An air conditioner, cooler, heater, air handling unit or water heater.
+
+  - token: DR
+    name: {en: Powered door or gate, fa: درب برقی}
+    family: building-services
+    placement: [unit, parent]
+    population: false
+    asset_classes: [door-operator]
+    structure_classes: []
+    children: []
+    definition: A powered door, roller shutter, site gate or barrier.
+
+  - token: EL
+    name: {en: Elevator, fa: آسانسور}
+    family: building-services
+    placement: [parent]
+    population: false
+    asset_classes: [elevator]
+    structure_classes: []
+    children: []
+    definition: A passenger or goods lift.
+
+  # --- Safety -----------------------------------------------------------------
+
+  - token: FE
+    name: {en: Fire extinguisher, fa: کپسول آتش‌نشانی}
+    family: safety
+    placement: [unit, parent]
+    population: false
+    asset_classes: [fire-extinguisher]
+    structure_classes: []
+    children: []
+    definition: A portable fire extinguisher at its fixed station.
+
+  - token: FH
+    name: {en: Fire hydrant or hose reel, fa: شیر آتش‌نشانی و قرقره}
+    family: safety
+    placement: [unit, parent]
+    population: false
+    asset_classes: [fire-hydrant]
+    structure_classes: []
+    children: []
+    definition: A fire hydrant, hose reel or fire hose cabinet.
+
+  - token: FX
+    name: {en: Fire suppression system, fa: سیستم اطفای حریق}
+    family: safety
+    placement: [unit, parent]
+    population: false
+    asset_classes: [fire-suppression]
+    structure_classes: []
+    children: []
+    definition: A fixed gas, sprinkler or water mist suppression system.
+
+  - token: FA
+    name: {en: Fire alarm system, fa: سیستم اعلام حریق}
+    family: safety
+    placement: [unit, parent]
+    population: false
+    asset_classes: [fire-alarm]
+    structure_classes: []
+    children: []
+    definition: A fire alarm panel with its detectors and call points.
+
+  - token: EW
+    name: {en: Emergency shower or eyewash, fa: دوش و چشم‌شوی اضطراری}
+    family: safety
+    placement: [unit, parent]
+    population: false
+    asset_classes: [emergency-shower]
+    structure_classes: []
+    children: []
+    definition: An emergency shower, eyewash or combined station.
+
+  - token: FK
+    name: {en: First aid station, fa: جعبه کمک‌های اولیه}
+    family: safety
+    placement: [unit, parent]
+    population: false
+    asset_classes: [first-aid]
+    structure_classes: []
+    children: []
+    definition: A fixed first aid cabinet or station.
+
+  # --- Laboratory and other ---------------------------------------------------
+
+  - token: LE
+    name: {en: Laboratory instrument, fa: دستگاه آزمایشگاهی}
+    family: laboratory
+    placement: [unit]
+    population: false
+    asset_classes: [lab-instrument]
+    structure_classes: []
+    children: []
+    definition: >-
+      A fixed or bench laboratory instrument or appliance that is serviced,
+      calibrated or repaired.
+
+  - token: WM
+    name: {en: Workshop machine, fa: ماشین تعمیرگاهی}
+    family: workshop
+    placement: [unit]
+    population: false
+    asset_classes: [workshop-machine]
+    structure_classes: []
+    children: []
+    definition: A fixed powered workshop machine such as a bench grinder, drill press or lathe.
+
+  - token: WB
+    name: {en: Weighbridge, fa: باسکول}
+    family: lifting
+    placement: [unit]
+    population: false
+    asset_classes: [weighbridge]
+    structure_classes: []
+    children: []
+    definition: A vehicle weighbridge.

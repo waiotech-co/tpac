@@ -1,0 +1,9 @@
+[
+  {"input": "KJBJA000123", "normalized": "KJBJA000123", "rules": []},
+  {"input": "kjbj-a000123", "normalized": "KJBJA000123", "rules": []},
+  {"input": "KJBJA۰۰۰۱۲۳", "normalized": "KJBJA000123", "rules": []},
+  {"input": "KJBJA00012", "normalized": "KJBJA00012", "rules": ["A-01"]},
+  {"input": "KJBJB000123", "normalized": "KJBJB000123", "rules": ["A-01"]},
+  {"input": "KJBJA00012X", "normalized": "KJBJA00012X", "rules": ["A-01"]},
+  {"input": "1JBJA000123", "normalized": "1JBJA000123", "rules": ["A-01"]}
+]

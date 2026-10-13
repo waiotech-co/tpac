@@ -1,0 +1,4 @@
+code,name,quantity,structure_class,asset_class,legacy_codes,status
+KJBJBS01,Blower station 1,,,,,active
+KJBJBS01BW01,Blower 1,,,blower,,active
+KJBJBS01BW01,Blower 1 again,,,blower,,active

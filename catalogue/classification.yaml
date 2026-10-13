@@ -1,0 +1,782 @@
+# TPAC asset classification.
+# Group > Class > Type. Types differ by working principle; size, rating, voltage,
+# material, make and installation arrangement are attributes, never types.
+# A classification is written as <class> or <class>.<type>, e.g. pump.radial-flow.
+# `national` gives the Iranian MIMS group.class(.type) code where the meaning is identical.
+
+catalogue: classification
+version: 0.3.0
+
+groups:
+
+  # ===========================================================================
+  - id: mechanical
+    name: {en: Mechanical, fa: مکانیکی}
+    classes:
+
+      - id: pump
+        name: {en: Pump, fa: پمپ}
+        national: "01.01"
+        types:
+          - {id: reciprocating-piston, national: "01.01.01", name: {en: Reciprocating piston, fa: جابجایی مثبت رفت و برگشتی پیستونی}}
+          - {id: reciprocating-plunger, national: "01.01.02", name: {en: Reciprocating plunger, fa: جابجایی مثبت رفت و برگشتی پلانجری}}
+          - {id: diaphragm, national: "01.01.03", name: {en: Diaphragm, fa: دیافراگمی}}
+          - {id: rotary-vane, national: "01.01.04", name: {en: Rotary vane, fa: دورانی تیغه‌ای}}
+          - {id: rotary-piston, national: "01.01.05", name: {en: Rotary piston, fa: دورانی پیستونی}}
+          - {id: flexible-impeller, national: "01.01.06", name: {en: Flexible impeller, fa: پروانه انعطاف‌پذیر}}
+          - {id: progressive-cavity, national: "01.01.07", name: {en: Progressive cavity (rotary screw), fa: پیچی (مونو)}}
+          - {id: peristaltic, national: "01.01.08", name: {en: Peristaltic (hose), fa: پریستالتیک (غلطکی)}}
+          - {id: gear, national: "01.01.09", name: {en: Gear, fa: دنده‌ای}}
+          - {id: lobe, national: "01.01.10", name: {en: Lobe, fa: لوب (گوشواره‌ای)}}
+          - {id: circumferential-piston, national: "01.01.11", name: {en: Circumferential piston, fa: پیستون محیطی}}
+          - {id: axial-flow, national: "01.01.12", name: {en: Axial flow, fa: سانتریفیوژ جریان محوری}}
+          - {id: radial-flow, national: "01.01.13", name: {en: Radial flow (centrifugal), fa: سانتریفیوژ جریان شعاعی}}
+          - {id: mixed-flow, national: "01.01.14", name: {en: Mixed flow, fa: سانتریفیوژ جریان مختلط}}
+          - {id: peripheral, national: "01.01.15", name: {en: Peripheral (regenerative), fa: محیطی}}
+          - {id: airlift, national: "01.01.16", name: {en: Airlift, fa: ایرلیفت}}
+          - {id: archimedean-screw, name: {en: Archimedean screw lift, fa: پمپ پیچ ارشمیدسی (اسکرو)}}
+
+      - id: blower
+        name: {en: Blower, fa: بلوئر}
+        national: "01.11"
+        types:
+          - {id: rotary-lobe, name: {en: Rotary lobe, fa: لوب دورانی}}
+          - {id: rotary-screw, name: {en: Rotary screw, fa: اسکرو دورانی}}
+          - {id: multistage-centrifugal, name: {en: Multistage centrifugal, fa: سانتریفیوژ چندمرحله‌ای}}
+          - {id: single-stage-geared, name: {en: Single-stage geared centrifugal, fa: سانتریفیوژ تک‌مرحله‌ای گیربکس‌دار}}
+          - {id: high-speed-turbo, name: {en: High-speed turbo, fa: توربو پرسرعت}}
+          - {id: side-channel, name: {en: Side channel, fa: ساید چنل}}
+
+      - id: compressor
+        name: {en: Compressor, fa: کمپرسور}
+        national: "01.02"
+        types:
+          - {id: reciprocating, national: "01.02.01", name: {en: Reciprocating, fa: جابجایی مثبت رفت و برگشتی}}
+          - {id: rotary, national: "01.02.02", name: {en: "Rotary (screw, vane, scroll)", fa: جابجایی مثبت دورانی}}
+          - {id: centrifugal, national: "01.02.03", name: {en: Centrifugal, fa: دینامیکی گریز از مرکز}}
+          - {id: axial, national: "01.02.04", name: {en: Axial, fa: دینامیکی محوری}}
+          - {id: mixed, national: "01.02.05", name: {en: Mixed flow, fa: دینامیکی مختلط}}
+
+      - id: gearbox
+        name: {en: Gearbox, fa: گیربکس}
+        national: "01.03"
+        types:
+          - {id: helical, name: {en: Helical, fa: هلیکال}}
+          - {id: bevel-helical, name: {en: Bevel helical, fa: بول هلیکال}}
+          - {id: worm, name: {en: Worm, fa: حلزونی}}
+          - {id: planetary, name: {en: Planetary, fa: خورشیدی}}
+          - {id: cycloidal, name: {en: Cycloidal, fa: سیکلوئیدی}}
+
+      - id: fan
+        name: {en: Fan, fa: فن}
+        national: "01.04"
+        types:
+          - {id: axial, name: {en: Axial, fa: محوری}}
+          - {id: centrifugal, name: {en: Centrifugal, fa: سانتریفیوژ}}
+          - {id: mixed-flow, name: {en: Mixed flow, fa: جریان مختلط}}
+
+      - id: mixer
+        name: {en: Mixer, fa: میکسر}
+        national: "01.09"
+        types:
+          - {id: submersible-propeller, name: {en: Submersible propeller, fa: مستغرق پروانه‌ای}}
+          - {id: low-speed-banana-blade, name: {en: Low-speed large blade, fa: کم‌دور پره بزرگ}}
+          - {id: vertical-shaft, name: {en: Vertical shaft (top entry), fa: شافت عمودی}}
+          - {id: hyperboloid, name: {en: Hyperboloid, fa: هیپربولوئید}}
+          - {id: flash-mixer, name: {en: Flash mixer, fa: اختلاط سریع}}
+          - {id: paddle-flocculator, name: {en: Paddle flocculator, fa: لخته‌ساز پارویی}}
+          - {id: jet-mixer, name: {en: Jet mixer, fa: جت میکسر}}
+
+      - id: aerator
+        name: {en: Mechanical aerator, fa: هواده مکانیکی}
+        types:
+          - {id: slow-speed-vertical, name: {en: Slow-speed vertical surface aerator, fa: سطحی عمودی کم‌دور}}
+          - {id: high-speed-floating, name: {en: High-speed floating aerator, fa: شناور پردور}}
+          - {id: horizontal-rotor, name: {en: Horizontal rotor (brush), fa: روتور افقی}}
+          - {id: aspirating, name: {en: Aspirating aerator, fa: مکشی}}
+          - {id: jet-aerator, name: {en: Jet aerator, fa: جت هواده}}
+
+      - id: diffuser
+        name: {en: Diffuser, fa: دیفیوزر}
+        national: "01.20"
+        types:
+          - {id: fine-bubble-disc, name: {en: Fine bubble disc, fa: دیسکی حباب ریز}}
+          - {id: fine-bubble-tube, name: {en: Fine bubble tube, fa: لوله‌ای حباب ریز}}
+          - {id: fine-bubble-panel, name: {en: Fine bubble panel, fa: صفحه‌ای حباب ریز}}
+          - {id: coarse-bubble, name: {en: Coarse bubble, fa: حباب درشت}}
+
+      - id: screen
+        name: {en: Screen, fa: آشغالگیر}
+        national: "01.07"
+        types:
+          - {id: manual-bar, name: {en: Manually raked bar screen, fa: میله‌ای دستی}}
+          - {id: multi-rake-bar, name: {en: Multi-rake bar screen, fa: میله‌ای چندشانه‌ای}}
+          - {id: climber-bar, name: {en: Climber bar screen, fa: میله‌ای کلایمبر}}
+          - {id: catenary-bar, name: {en: Catenary bar screen, fa: میله‌ای کتناری}}
+          - {id: reciprocating-rake, name: {en: Reciprocating rake bar screen, fa: میله‌ای شانه رفت و برگشتی}}
+          - {id: step, name: {en: Step screen, fa: پله‌ای}}
+          - {id: rotary-drum, name: {en: Rotary drum screen, fa: درام دوار}}
+          - {id: band, name: {en: Band or perforated plate screen, fa: نواری}}
+          - {id: spiral, name: {en: Spiral (in-channel screw) screen, fa: مارپیچی درون کانالی}}
+
+      - id: grinder
+        name: {en: Grinder, fa: خردکن}
+        types:
+          - {id: channel-grinder, name: {en: Channel grinder, fa: خردکن کانالی}}
+          - {id: inline-macerator, name: {en: Inline macerator, fa: خردکن خطی}}
+
+      - id: screenings-handling
+        name: {en: Screenings and grit handling, fa: فشرده‌ساز و شستشوی آشغال}
+        types:
+          - {id: washer-compactor, name: {en: Washer compactor, fa: شستشو و فشرده‌ساز}}
+          - {id: screw-press, name: {en: Screw press, fa: اسکرو پرس}}
+          - {id: hydraulic-compactor, name: {en: Hydraulic compactor, fa: فشرده‌ساز هیدرولیکی}}
+
+      - id: conveyor
+        name: {en: Conveyor, fa: نقاله}
+        national: "01.06"
+        types:
+          - {id: belt, name: {en: Belt, fa: نواری}}
+          - {id: shafted-screw, name: {en: Shafted screw, fa: مارپیچ شفت‌دار}}
+          - {id: shaftless-screw, name: {en: Shaftless screw, fa: مارپیچ بدون شفت}}
+          - {id: chain, name: {en: Chain, fa: زنجیری}}
+          - {id: bucket-elevator, name: {en: Bucket elevator, fa: بالابر سطلی}}
+          - {id: screw-feeder, name: {en: Volumetric screw feeder, fa: خوراک‌دهنده مارپیچی}}
+
+      - id: grit-equipment
+        name: {en: Grit equipment, fa: تجهیزات دانه‌گیری}
+        national: "01.16"
+        types:
+          - {id: screw-classifier, name: {en: Screw grit classifier, fa: کلاسیفایر مارپیچی}}
+          - {id: hydrocyclone, name: {en: Hydrocyclone, fa: هیدروسیکلون}}
+          - {id: grit-washer, name: {en: Grit washer, fa: شستشوی دانه}}
+          - {id: vortex-drive, name: {en: Vortex grit chamber drive, fa: محرک دانه‌گیر گردابی}}
+
+      - id: sludge-collector
+        name: {en: Sludge collector, fa: مکانیزم جمع‌آوری لجن}
+        national: "01.18"
+        types:
+          - {id: circular-centre-drive, name: {en: "Circular, centre drive", fa: دایره‌ای با محرک مرکزی}}
+          - {id: circular-peripheral-drive, name: {en: "Circular, peripheral drive bridge", fa: دایره‌ای با پل محیطی}}
+          - {id: travelling-bridge, name: {en: Rectangular travelling bridge, fa: پل متحرک مستطیلی}}
+          - {id: chain-and-flight, name: {en: Chain and flight, fa: زنجیر و پاروی}}
+          - {id: suction, name: {en: Suction (siphon or pump), fa: مکشی}}
+          - {id: picket-fence-thickener, name: {en: Picket fence thickener mechanism, fa: مکانیزم تغلیظ‌کننده}}
+
+      - id: scum-removal
+        name: {en: Scum removal, fa: جمع‌آوری کف و چربی}
+        types:
+          - {id: rotating-pipe, name: {en: Rotating scum pipe, fa: لوله کف‌گیر چرخان}}
+          - {id: tilting-trough, name: {en: Tilting trough, fa: ناودانی چرخان}}
+          - {id: belt-skimmer, name: {en: Belt or disc skimmer, fa: کفگیر نواری}}
+
+      - id: decanter
+        name: {en: Decanter, fa: دکانتور}
+        types:
+          - {id: floating, name: {en: Floating decanter, fa: شناور}}
+          - {id: swivel-arm, name: {en: Motorized swivel arm, fa: بازوی متحرک}}
+
+      - id: sludge-separation
+        name: {en: Sludge thickening and dewatering machine, fa: دستگاه تغلیظ و آبگیری لجن}
+        national: "01.12"
+        types:
+          - {id: belt-filter-press, name: {en: Belt filter press, fa: بلت فیلتر پرس}}
+          - {id: decanter-centrifuge, name: {en: Decanter centrifuge, fa: سانتریفیوژ دکانتر}}
+          - {id: screw-press, name: {en: Screw press, fa: اسکرو پرس}}
+          - {id: belt-thickener, name: {en: Gravity belt thickener, fa: تغلیظ‌کننده نواری}}
+          - {id: drum-thickener, name: {en: Rotary drum thickener, fa: تغلیظ‌کننده درام}}
+          - {id: filter-press, name: {en: Plate filter press, fa: فیلتر پرس صفحه‌ای}}
+
+      - id: package
+        name: {en: Package unit, fa: پکیج}
+        types:
+          - {id: chemical-dosing, name: {en: Chemical dosing package, fa: پکیج تزریق مواد شیمیایی}}
+          - {id: polymer-powder, national: "01.13", name: {en: "Polymer preparation, powder", fa: آماده‌سازی پلیمر پودری}}
+          - {id: polymer-emulsion, national: "01.13", name: {en: "Polymer preparation, emulsion", fa: آماده‌سازی پلیمر امولسیون}}
+          - {id: compressed-air, national: "01.14", name: {en: Compressed air package, fa: پکیج هوای فشرده}}
+          - {id: odour-biological, name: {en: Biological odour treatment, fa: بوزدایی بیولوژیکی}}
+          - {id: odour-chemical-scrubber, name: {en: Chemical scrubber, fa: اسکرابر شیمیایی}}
+          - {id: odour-activated-carbon, name: {en: Activated carbon odour filter, fa: فیلتر کربن فعال}}
+          - {id: biogas-treatment, national: "01.21", name: {en: Biogas treatment package, fa: پکیج تصفیه بیوگاز}}
+          - {id: water-treatment, name: {en: Utility water treatment package, fa: پکیج تصفیه آب خدماتی}}
+
+      - id: disinfection-equipment
+        name: {en: Disinfection equipment, fa: تجهیزات گندزدایی}
+        national: "01.08"
+        types:
+          - {id: gas-chlorinator, name: {en: Gas chlorinator, fa: کلریناتور گازی}}
+          - {id: hypochlorite-generator, name: {en: On-site hypochlorite generator, fa: مولد هیپوکلریت}}
+          - {id: chlorine-dioxide-generator, name: {en: Chlorine dioxide generator, fa: مولد دی‌اکسید کلر}}
+          - {id: ozone-generator, name: {en: Ozone generator, fa: مولد ازن}}
+
+      - id: uv-system
+        name: {en: UV system, fa: سیستم فرابنفش}
+        types:
+          - {id: open-channel, name: {en: Open channel, fa: کانال باز}}
+          - {id: closed-vessel, name: {en: Closed vessel, fa: محفظه بسته}}
+
+      - id: filter
+        name: {en: Filter, fa: فیلتر}
+        national: "01.19"
+        types:
+          - {id: gravity-media, name: {en: Gravity media filter, fa: فیلتر ثقلی بستر}}
+          - {id: pressure-media, name: {en: Pressure media filter, fa: فیلتر تحت فشار}}
+          - {id: disc-cloth, name: {en: Disc or cloth filter, fa: فیلتر دیسکی و پارچه‌ای}}
+          - {id: drum, name: {en: Drum filter or microstrainer, fa: فیلتر درام و میکرواسترینر}}
+          - {id: self-cleaning-strainer, name: {en: Self-cleaning strainer, fa: صافی خودشو}}
+          - {id: cartridge, name: {en: Cartridge or bag filter, fa: فیلتر کارتریجی}}
+
+      - id: membrane
+        name: {en: Membrane system, fa: سیستم غشایی}
+        types:
+          - {id: submerged-hollow-fibre, name: {en: Submerged hollow fibre, fa: الیاف توخالی مستغرق}}
+          - {id: submerged-flat-sheet, name: {en: Submerged flat sheet, fa: صفحه‌ای مستغرق}}
+          - {id: pressurized-hollow-fibre, name: {en: Pressurized hollow fibre, fa: الیاف توخالی تحت فشار}}
+          - {id: spiral-wound, name: {en: Spiral wound (RO/NF), fa: مارپیچی}}
+
+      - id: heat-exchanger
+        name: {en: Heat exchanger, fa: مبدل حرارتی}
+        types:
+          - {id: shell-and-tube, name: {en: Shell and tube, fa: پوسته و لوله}}
+          - {id: plate, name: {en: Plate, fa: صفحه‌ای}}
+          - {id: spiral, name: {en: Spiral, fa: مارپیچ}}
+          - {id: tube-in-tube, name: {en: Tube in tube, fa: دولوله‌ای}}
+
+      - id: boiler
+        name: {en: Boiler, fa: دیگ}
+        types:
+          - {id: hot-water, name: {en: Hot water, fa: آب گرم}}
+          - {id: steam, name: {en: Steam, fa: بخار}}
+
+      - id: engine
+        name: {en: Combustion engine, fa: موتور احتراقی}
+        national: "01.17"
+        types:
+          - {id: diesel, name: {en: Diesel, fa: دیزلی}}
+          - {id: gas, name: {en: Gas, fa: گازسوز}}
+
+      - id: hydraulic-unit
+        name: {en: Hydraulic power unit, fa: یونیت هیدرولیک}
+        types: []
+
+      - id: flare
+        name: {en: Flare, fa: مشعل}
+        types:
+          - {id: open, name: {en: Open flare, fa: باز}}
+          - {id: enclosed, name: {en: Enclosed flare, fa: محفظه‌دار}}
+
+      - id: vessel
+        name: {en: Tank and pressure vessel, fa: مخزن و مخزن تحت فشار}
+        types:
+          - {id: steel-tank, name: {en: Steel atmospheric tank, fa: مخزن فلزی}}
+          - {id: grp-tank, name: {en: GRP tank, fa: مخزن فایبرگلاس}}
+          - {id: polyethylene-tank, name: {en: Polyethylene tank, fa: مخزن پلی‌اتیلن}}
+          - {id: pressure-vessel, name: {en: Pressure vessel or air receiver, fa: مخزن تحت فشار}}
+          - {id: gas-holder-membrane, name: {en: Membrane gas holder, fa: مخزن گاز غشایی}}
+          - {id: gas-holder-floating, name: {en: Floating cover gas holder, fa: مخزن گاز سقف شناور}}
+
+      - id: lifting
+        name: {en: Lifting equipment, fa: تجهیزات بالابر}
+        types:
+          - {id: overhead-travelling-crane, name: {en: Overhead travelling crane, fa: جرثقیل سقفی}}
+          - {id: gantry-crane, name: {en: Gantry crane, fa: جرثقیل دروازه‌ای}}
+          - {id: jib-crane, name: {en: Jib crane, fa: جرثقیل بازویی}}
+          - {id: monorail-hoist, name: {en: Monorail electric hoist, fa: مونوریل و بالابر برقی}}
+          - {id: manual-chain-hoist, name: {en: Manual chain hoist, fa: جرثقیل دستی زنجیری}}
+          - {id: davit, name: {en: Fixed davit, fa: داویت}}
+
+      - id: weighbridge
+        name: {en: Weighbridge, fa: باسکول}
+        types: []
+
+      - id: workshop-machine
+        name: {en: Workshop machine, fa: ماشین تعمیرگاهی}
+        types:
+          - {id: bench-grinder, name: {en: Bench grinder, fa: سنگ سنباده رومیزی}}
+          - {id: drill-press, name: {en: Drill press, fa: دریل ستونی}}
+          - {id: lathe, name: {en: Lathe, fa: تراش}}
+          - {id: welding-machine, name: {en: Welding machine, fa: دستگاه جوش}}
+          - {id: hydraulic-press, name: {en: Hydraulic press, fa: پرس هیدرولیک}}
+          - {id: power-saw, name: {en: Power saw, fa: اره برقی}}
+
+  # ===========================================================================
+  - id: flow-control
+    name: {en: Valves and gates, fa: شیرآلات و دریچه‌ها}
+    classes:
+
+      - id: valve
+        name: {en: Valve, fa: شیر}
+        types:
+          - {id: gate, name: {en: Gate valve, fa: کشویی}}
+          - {id: knife-gate, name: {en: Knife gate valve, fa: چاقویی}}
+          - {id: butterfly, name: {en: Butterfly valve, fa: پروانه‌ای}}
+          - {id: ball, name: {en: Ball valve, fa: توپی}}
+          - {id: plug, name: {en: Plug valve, fa: سماوری}}
+          - {id: globe, name: {en: Globe valve, fa: بشقابی}}
+          - {id: diaphragm, name: {en: Diaphragm valve, fa: دیافراگمی}}
+          - {id: pinch, name: {en: Pinch valve, fa: پینچ}}
+          - {id: swing-check, name: {en: Swing check valve, fa: یکطرفه لولایی}}
+          - {id: ball-check, name: {en: Ball check valve, fa: یکطرفه توپی}}
+          - {id: dual-plate-check, name: {en: Dual plate check valve, fa: یکطرفه دوصفحه‌ای}}
+          - {id: foot, name: {en: Foot valve, fa: سوپاپ پای پمپ}}
+          - {id: telescopic, name: {en: Telescopic valve, fa: تلسکوپی}}
+          - {id: pressure-relief, name: {en: Pressure relief or safety valve, fa: اطمینان}}
+          - {id: pressure-reducing, name: {en: Pressure reducing valve, fa: فشارشکن}}
+          - {id: air-release, name: {en: Air release valve, fa: هواگیری}}
+          - {id: solenoid, name: {en: Solenoid valve, fa: برقی سلونوئیدی}}
+          - {id: float, name: {en: Float valve, fa: شناوری}}
+
+      - id: gate
+        name: {en: Gate, fa: دریچه}
+        types:
+          - {id: penstock, name: {en: Penstock or sluice gate, fa: دریچه پنستاک}}
+          - {id: slide, name: {en: Channel slide gate, fa: دریچه کشویی کانالی}}
+          - {id: weir, name: {en: Adjustable weir gate, fa: دریچه سرریز قابل تنظیم}}
+          - {id: flap, name: {en: Flap gate, fa: دریچه لولایی}}
+          - {id: stop-log, name: {en: Stop log, fa: استاپ لاگ}}
+
+      - id: actuator
+        name: {en: Actuator, fa: عملگر}
+        national: "01.10"
+        types:
+          - {id: electric-multi-turn, name: {en: Electric multi-turn, fa: برقی چنددور}}
+          - {id: electric-quarter-turn, name: {en: Electric quarter-turn, fa: برقی ربع‌دور}}
+          - {id: pneumatic, name: {en: Pneumatic, fa: پنوماتیک}}
+          - {id: hydraulic, name: {en: Hydraulic, fa: هیدرولیک}}
+          - {id: manual-gear, name: {en: Manual gear operator, fa: گیربکس دستی}}
+
+  # ===========================================================================
+  - id: electrical
+    name: {en: Electrical, fa: برق}
+    classes:
+
+      - id: motor
+        name: {en: Electric motor, fa: الکتروموتور}
+        types:
+          - {id: induction-cage-3ph, name: {en: Three-phase squirrel cage induction, fa: القایی قفس سنجابی سه‌فاز}}
+          - {id: induction-1ph, name: {en: Single-phase induction, fa: القایی تک‌فاز}}
+          - {id: induction-slip-ring, name: {en: Slip ring induction, fa: القایی روتور سیم‌پیچی}}
+          - {id: synchronous, name: {en: Synchronous, fa: سنکرون}}
+          - {id: permanent-magnet, name: {en: Permanent magnet, fa: مغناطیس دائم}}
+          - {id: dc, name: {en: DC, fa: جریان مستقیم}}
+          - {id: geared-motor, name: {en: Integral geared motor, fa: گیربکس موتور یکپارچه}}
+
+      - id: drive
+        name: {en: Drive and starter, fa: درایو و راه‌انداز}
+        types:
+          - {id: vfd, name: {en: Variable frequency drive, fa: اینورتر (درایو دور متغیر)}}
+          - {id: soft-starter, name: {en: Soft starter, fa: سافت استارتر}}
+          - {id: direct-on-line, name: {en: Direct-on-line starter, fa: راه‌انداز مستقیم}}
+          - {id: star-delta, name: {en: Star-delta starter, fa: راه‌انداز ستاره مثلث}}
+
+      - id: switchboard
+        name: {en: Switchboard, fa: تابلو برق}
+        types:
+          - {id: mv-switchgear, name: {en: MV switchgear, fa: تابلو فشار متوسط}}
+          - {id: ring-main-unit, name: {en: Ring main unit, fa: رینگ مین یونیت}}
+          - {id: main-distribution, name: {en: Main LV distribution board, fa: تابلو اصلی فشار ضعیف}}
+          - {id: motor-control-centre, name: {en: Motor control centre, fa: تابلو MCC}}
+          - {id: distribution, name: {en: Distribution board, fa: تابلو توزیع}}
+          - {id: lighting, name: {en: Lighting board, fa: تابلو روشنایی}}
+
+      - id: control-panel
+        name: {en: Local control panel, fa: تابلو کنترل محلی}
+        types:
+          - {id: local-control-station, name: {en: Local control station, fa: پوش‌باتن استیشن}}
+          - {id: local-control-panel, name: {en: Local control panel, fa: تابلو کنترل محلی}}
+
+      - id: transformer
+        name: {en: Transformer, fa: ترانسفورماتور}
+        types:
+          - {id: oil-immersed, name: {en: Oil immersed, fa: روغنی}}
+          - {id: dry-type, name: {en: Dry type, fa: خشک}}
+
+      - id: generator-set
+        name: {en: Generator set, fa: مولد برق}
+        types:
+          - {id: diesel, name: {en: Diesel generator set, fa: دیزل ژنراتور}}
+          - {id: gas, name: {en: Gas generator set, fa: گاز ژنراتور}}
+
+      - id: ups
+        name: {en: UPS and DC system, fa: یو پی اس و سیستم DC}
+        types:
+          - {id: online-1ph, name: {en: "Online UPS, single phase", fa: آنلاین تک‌فاز}}
+          - {id: online-3ph, name: {en: "Online UPS, three phase", fa: آنلاین سه‌فاز}}
+          - {id: offline, name: {en: Offline or line-interactive UPS, fa: آفلاین}}
+          - {id: dc-system, name: {en: Battery charger and battery, fa: شارژر و باتری}}
+
+      - id: capacitor-bank
+        name: {en: Capacitor bank, fa: بانک خازنی}
+        types:
+          - {id: fixed, name: {en: Fixed, fa: ثابت}}
+          - {id: automatic, name: {en: Automatic, fa: اتوماتیک}}
+
+      - id: lighting
+        name: {en: Lighting, fa: روشنایی}
+        types:
+          - {id: indoor, name: {en: Indoor luminaire, fa: چراغ داخلی}}
+          - {id: floodlight, name: {en: Floodlight, fa: پرژکتور}}
+          - {id: street, name: {en: Street light, fa: چراغ خیابانی}}
+          - {id: emergency, name: {en: Emergency light, fa: چراغ اضطراری}}
+
+      - id: lighting-tower
+        name: {en: Lighting tower, fa: برج روشنایی}
+        types:
+          - {id: fixed, name: {en: Fixed lamp ring, fa: ثابت}}
+          - {id: raising-lowering, name: {en: Motorized raising and lowering, fa: موتوردار}}
+
+      - id: earthing
+        name: {en: Earthing and lightning protection, fa: ارت و صاعقه‌گیر}
+        types:
+          - {id: earthing, name: {en: Earthing system, fa: سیستم ارت}}
+          - {id: lightning-protection, name: {en: Lightning protection, fa: صاعقه‌گیر}}
+
+      - id: solar
+        name: {en: Photovoltaic array, fa: آرایه فتوولتائیک}
+        types: []
+
+      - id: inverter
+        name: {en: Solar inverter, fa: اینورتر خورشیدی}
+        types: []
+
+      - id: energy-meter
+        name: {en: Energy meter, fa: کنتور انرژی}
+        types:
+          - {id: electricity, name: {en: Electricity meter, fa: کنتور برق}}
+          - {id: gas, name: {en: Gas meter, fa: کنتور گاز}}
+          - {id: heat, name: {en: Heat meter, fa: کنتور حرارت}}
+
+  # ===========================================================================
+  - id: instrumentation
+    name: {en: Instrumentation and control, fa: ابزار دقیق و کنترل}
+    classes:
+
+      - id: flow-instrument
+        name: {en: Flow instrument, fa: دبی‌سنج}
+        types:
+          - {id: electromagnetic, name: {en: Electromagnetic, fa: الکترومغناطیسی}}
+          - {id: ultrasonic-open-channel, name: {en: Ultrasonic open channel (flume or weir), fa: اولتراسونیک کانال باز}}
+          - {id: ultrasonic-transit-time, name: {en: Ultrasonic transit time, fa: اولتراسونیک زمان عبور}}
+          - {id: thermal-mass, name: {en: Thermal mass (air or gas), fa: جرمی حرارتی}}
+          - {id: vortex, name: {en: Vortex, fa: ورتکس}}
+          - {id: differential-pressure, name: {en: Differential pressure, fa: اختلاف فشار}}
+          - {id: variable-area, name: {en: Variable area (rotameter), fa: روتامتر}}
+          - {id: mechanical-meter, name: {en: Mechanical water meter, fa: کنتور مکانیکی}}
+
+      - id: level-instrument
+        name: {en: Level instrument, fa: سطح‌سنج}
+        types:
+          - {id: ultrasonic, name: {en: Ultrasonic, fa: اولتراسونیک}}
+          - {id: radar, name: {en: Radar, fa: راداری}}
+          - {id: hydrostatic, name: {en: Hydrostatic, fa: هیدرواستاتیک}}
+          - {id: float-switch, name: {en: Float switch, fa: فلوتر}}
+          - {id: conductive-switch, name: {en: Conductive switch, fa: الکترودی}}
+          - {id: capacitance, name: {en: Capacitance, fa: خازنی}}
+          - {id: gauge, name: {en: Sight or float gauge, fa: نشانگر سطح}}
+
+      - id: pressure-instrument
+        name: {en: Pressure instrument, fa: فشارسنج}
+        types:
+          - {id: transmitter, name: {en: Pressure transmitter, fa: ترانسمیتر فشار}}
+          - {id: differential-transmitter, name: {en: Differential pressure transmitter, fa: ترانسمیتر اختلاف فشار}}
+          - {id: gauge, name: {en: Pressure gauge, fa: فشارسنج عقربه‌ای}}
+          - {id: switch, name: {en: Pressure switch, fa: پرشر سوئیچ}}
+
+      - id: temperature-instrument
+        name: {en: Temperature instrument, fa: دماسنج}
+        types:
+          - {id: transmitter, name: {en: Temperature transmitter, fa: ترانسمیتر دما}}
+          - {id: thermometer, name: {en: Thermometer, fa: دماسنج عقربه‌ای}}
+          - {id: switch, name: {en: Temperature switch, fa: ترموستات}}
+
+      - id: analyzer
+        name: {en: Quality analyzer, fa: آنالایزر کیفی}
+        types:
+          - {id: dissolved-oxygen, name: {en: Dissolved oxygen, fa: اکسیژن محلول}}
+          - {id: ph, name: {en: pH, fa: pH}}
+          - {id: orp, name: {en: ORP, fa: ORP}}
+          - {id: conductivity, name: {en: Conductivity, fa: هدایت الکتریکی}}
+          - {id: turbidity, name: {en: Turbidity, fa: کدورت}}
+          - {id: suspended-solids, name: {en: Suspended solids (MLSS), fa: جامدات معلق}}
+          - {id: ammonium, name: {en: Ammonium, fa: آمونیوم}}
+          - {id: nitrate, name: {en: Nitrate, fa: نیترات}}
+          - {id: phosphate, name: {en: Phosphate, fa: فسفات}}
+          - {id: organic-load, name: {en: "COD, TOC or UV254", fa: بار آلی}}
+          - {id: residual-chlorine, name: {en: Residual chlorine, fa: کلر باقیمانده}}
+          - {id: sludge-blanket, name: {en: Sludge blanket, fa: سطح لجن}}
+          - {id: multi-parameter, name: {en: Multi-parameter controller, fa: کنترلر چندپارامتری}}
+
+      - id: gas-detector
+        name: {en: Gas detector, fa: دتکتور گاز}
+        types:
+          - {id: h2s, name: {en: Hydrogen sulphide, fa: سولفید هیدروژن}}
+          - {id: flammable, name: {en: Flammable gas (LEL), fa: گاز قابل اشتعال}}
+          - {id: chlorine, name: {en: Chlorine, fa: کلر}}
+          - {id: oxygen, name: {en: Oxygen, fa: اکسیژن}}
+          - {id: multi-gas, name: {en: Multi-gas, fa: چندگازی}}
+
+      - id: controller
+        name: {en: Controller, fa: کنترلر}
+        types:
+          - {id: plc, name: {en: PLC, fa: PLC}}
+          - {id: rtu, name: {en: RTU, fa: RTU}}
+          - {id: remote-io, name: {en: Remote I/O station, fa: ایستگاه ورودی و خروجی دور}}
+          - {id: hmi-panel, name: {en: HMI panel, fa: پنل HMI}}
+          - {id: data-logger, name: {en: Data logger, fa: دیتالاگر}}
+
+      - id: sampler
+        name: {en: Automatic sampler, fa: نمونه‌بردار خودکار}
+        types:
+          - {id: refrigerated, name: {en: Refrigerated composite sampler, fa: یخچال‌دار ترکیبی}}
+          - {id: non-refrigerated, name: {en: Non-refrigerated sampler, fa: بدون یخچال}}
+
+  # ===========================================================================
+  - id: ict
+    name: {en: Communication and IT, fa: ارتباطات و فناوری اطلاعات}
+    classes:
+
+      - id: computer
+        name: {en: Computer, fa: رایانه}
+        types:
+          - {id: workstation, name: {en: Workstation, fa: ایستگاه کاری}}
+          - {id: server, name: {en: Server, fa: سرور}}
+          - {id: industrial-pc, name: {en: Industrial PC, fa: رایانه صنعتی}}
+
+      - id: network
+        name: {en: Network equipment, fa: تجهیزات شبکه}
+        types:
+          - {id: switch, name: {en: Network switch, fa: سوئیچ شبکه}}
+          - {id: router, name: {en: Router or firewall, fa: روتر و فایروال}}
+          - {id: radio-link, name: {en: Radio link, fa: لینک رادیویی}}
+          - {id: modem, name: {en: Modem, fa: مودم}}
+
+      - id: cctv
+        name: {en: CCTV camera, fa: دوربین مداربسته}
+        types:
+          - {id: fixed, name: {en: Fixed, fa: ثابت}}
+          - {id: ptz, name: {en: PTZ, fa: گردان}}
+          - {id: panoramic, name: {en: Panoramic, fa: ۳۶۰ درجه}}
+
+      - id: video-recorder
+        name: {en: Video recorder, fa: دستگاه ضبط تصویر}
+        types:
+          - {id: nvr, name: {en: NVR, fa: NVR}}
+          - {id: dvr, name: {en: DVR, fa: DVR}}
+
+      - id: telecom-tower
+        name: {en: Telecom tower, fa: دکل مخابراتی}
+        types:
+          - {id: guyed, name: {en: Guyed mast, fa: مهاری}}
+          - {id: self-supporting, name: {en: Self-supporting tower, fa: خودایستا}}
+          - {id: monopole, name: {en: Monopole, fa: تک‌پایه}}
+
+      - id: security-system
+        name: {en: Security system, fa: سیستم امنیتی}
+        types:
+          - {id: access-control, name: {en: Access control, fa: کنترل تردد}}
+          - {id: intrusion-alarm, name: {en: Intrusion alarm, fa: دزدگیر}}
+          - {id: attendance, name: {en: Attendance system, fa: حضور و غیاب}}
+          - {id: intercom, name: {en: Intercom, fa: آیفون و اینترکام}}
+
+  # ===========================================================================
+  - id: laboratory
+    name: {en: Laboratory, fa: آزمایشگاهی}
+    classes:
+
+      - id: lab-instrument
+        name: {en: Laboratory instrument, fa: دستگاه آزمایشگاهی}
+        types:
+          - {id: spectrophotometer, name: {en: Spectrophotometer, fa: اسپکتروفتومتر}}
+          - {id: ph-meter, name: {en: pH or ion meter, fa: pH‌متر و یون‌متر}}
+          - {id: do-meter, name: {en: DO meter, fa: اکسیژن‌متر}}
+          - {id: conductivity-meter, name: {en: Conductivity meter, fa: هدایت‌سنج}}
+          - {id: turbidimeter, name: {en: Turbidimeter, fa: کدورت‌سنج}}
+          - {id: bod-system, name: {en: BOD measuring system, fa: سیستم BOD}}
+          - {id: incubator, name: {en: Incubator, fa: انکوباتور}}
+          - {id: cod-reactor, name: {en: COD reactor, fa: راکتور COD}}
+          - {id: oven, name: {en: Drying oven, fa: آون}}
+          - {id: muffle-furnace, name: {en: Muffle furnace, fa: کوره}}
+          - {id: autoclave, name: {en: Autoclave, fa: اتوکلاو}}
+          - {id: refrigerator, name: {en: Laboratory refrigerator, fa: یخچال آزمایشگاهی}}
+          - {id: water-purifier, name: {en: Water still or purifier, fa: آب مقطرگیر}}
+          - {id: analytical-balance, name: {en: Analytical balance, fa: ترازوی آنالیتیکال}}
+          - {id: precision-balance, name: {en: Precision balance, fa: ترازوی دقیق}}
+          - {id: centrifuge, name: {en: Centrifuge, fa: سانتریفیوژ}}
+          - {id: microscope, name: {en: Microscope, fa: میکروسکوپ}}
+          - {id: fume-hood, name: {en: Fume hood, fa: هود شیمیایی}}
+          - {id: laminar-flow-hood, name: {en: Laminar flow hood, fa: هود لامینار}}
+          - {id: jar-tester, name: {en: Jar tester, fa: جار تست}}
+          - {id: hot-plate-stirrer, name: {en: Hot plate or stirrer, fa: هات پلیت و همزن}}
+          - {id: water-bath, name: {en: Water bath, fa: بن ماری}}
+          - {id: vacuum-pump, name: {en: Vacuum pump, fa: پمپ خلأ}}
+          - {id: colony-counter, name: {en: Colony counter, fa: کلنی کانتر}}
+          - {id: flame-photometer, name: {en: Flame photometer, fa: فلیم فتومتر}}
+          - {id: atomic-absorption, name: {en: Atomic absorption spectrometer, fa: جذب اتمی}}
+          - {id: kjeldahl, name: {en: Kjeldahl apparatus, fa: کجلدال}}
+          - {id: soxhlet, name: {en: Soxhlet apparatus, fa: سوکسله}}
+          - {id: titrator, name: {en: Titrator or digital burette, fa: تیتراتور و بورت دیجیتال}}
+          - {id: shaker, name: {en: Shaker or vortex mixer, fa: شیکر}}
+          - {id: heating-mantle, name: {en: Heating mantle, fa: هیتر بالن (شوف بالن)}}
+          - {id: air-pump, name: {en: Laboratory air pump, fa: پمپ هوای آزمایشگاهی}}
+
+  # ===========================================================================
+  - id: safety
+    name: {en: Safety and fire, fa: ایمنی و آتش‌نشانی}
+    classes:
+
+      - id: fire-extinguisher
+        name: {en: Fire extinguisher, fa: کپسول آتش‌نشانی}
+        types:
+          - {id: dry-powder, name: {en: Dry powder, fa: پودر و گاز}}
+          - {id: co2, name: {en: CO2, fa: CO2}}
+          - {id: foam, name: {en: Foam, fa: کف}}
+          - {id: water, name: {en: Water, fa: آب}}
+
+      - id: fire-hydrant
+        name: {en: Fire hydrant and hose reel, fa: شیر آتش‌نشانی و قرقره}
+        types:
+          - {id: hydrant, name: {en: Hydrant, fa: هیدرانت}}
+          - {id: hose-reel, name: {en: Hose reel or cabinet, fa: جعبه آتش‌نشانی}}
+
+      - id: fire-suppression
+        name: {en: Fixed fire suppression, fa: اطفای حریق ثابت}
+        types:
+          - {id: gas, name: {en: Gas, fa: گازی}}
+          - {id: sprinkler, name: {en: Sprinkler, fa: اسپرینکلر}}
+          - {id: water-mist, name: {en: Water mist, fa: مه‌پاش}}
+
+      - id: fire-alarm
+        name: {en: Fire alarm system, fa: سیستم اعلام حریق}
+        types:
+          - {id: conventional, name: {en: Conventional, fa: متعارف}}
+          - {id: addressable, name: {en: Addressable, fa: آدرس‌پذیر}}
+
+      - id: emergency-shower
+        name: {en: Emergency shower and eyewash, fa: دوش و چشم‌شوی اضطراری}
+        types:
+          - {id: combined, name: {en: Combined shower and eyewash, fa: ترکیبی}}
+          - {id: eyewash, name: {en: Eyewash only, fa: چشم‌شوی}}
+
+      - id: first-aid
+        name: {en: First aid station, fa: جعبه کمک‌های اولیه}
+        types: []
+
+  # ===========================================================================
+  - id: building-services
+    name: {en: Building services, fa: تأسیسات ساختمان}
+    classes:
+
+      - id: hvac
+        name: {en: HVAC unit, fa: سرمایش و گرمایش}
+        types:
+          - {id: split-ac, name: {en: Split air conditioner, fa: کولر گازی اسپلیت}}
+          - {id: window-ac, name: {en: Window air conditioner, fa: کولر گازی پنجره‌ای}}
+          - {id: evaporative-cooler, name: {en: Evaporative cooler, fa: کولر آبی}}
+          - {id: air-handling-unit, name: {en: Air handling unit, fa: هواساز}}
+          - {id: chiller, name: {en: Chiller, fa: چیلر}}
+          - {id: room-heater, name: {en: Room heater, fa: بخاری}}
+          - {id: water-heater, name: {en: Water heater, fa: آبگرمکن}}
+
+      - id: door-operator
+        name: {en: Powered door or gate, fa: درب برقی}
+        types:
+          - {id: sliding-door, name: {en: Sliding door, fa: درب کشویی}}
+          - {id: roller-shutter, name: {en: Roller shutter, fa: کرکره برقی}}
+          - {id: swing-gate, name: {en: Swing gate, fa: درب لولایی}}
+          - {id: barrier, name: {en: Barrier, fa: راهبند}}
+
+      - id: elevator
+        name: {en: Elevator, fa: آسانسور}
+        types: []
+
+  # ===========================================================================
+  - id: civil
+    name: {en: Civil structures, fa: سازه}
+    note: >-
+      Civil classes describe structure positions. They are recorded on the position,
+      not on an installed asset.
+    classes:
+
+      - id: civil-basin
+        name: {en: Basin, fa: حوض}
+        types:
+          - {id: rectangular-concrete, name: {en: Rectangular concrete, fa: بتنی مستطیلی}}
+          - {id: circular-concrete, name: {en: Circular concrete, fa: بتنی دایره‌ای}}
+          - {id: steel, name: {en: Steel, fa: فلزی}}
+
+      - id: civil-tank
+        name: {en: Concrete tank, fa: مخزن بتنی}
+        types:
+          - {id: ground, name: {en: Ground tank, fa: زمینی}}
+          - {id: elevated, name: {en: Elevated tank, fa: هوایی}}
+
+      - id: channel
+        name: {en: Channel, fa: کانال}
+        types:
+          - {id: open-concrete, name: {en: Open concrete channel, fa: کانال بتنی روباز}}
+          - {id: covered-concrete, name: {en: Covered concrete channel, fa: کانال بتنی سرپوشیده}}
+          - {id: flume, name: {en: Measuring flume, fa: فلوم اندازه‌گیری}}
+          - {id: steel, name: {en: Steel channel or launder, fa: کانال فلزی}}
+
+      - id: chamber
+        name: {en: Chamber, fa: حوضچه و اتاقک}
+        types:
+          - {id: distribution, name: {en: Distribution chamber, fa: حوضچه تقسیم}}
+          - {id: wet-well, name: {en: Wet well, fa: چاهک مکش}}
+          - {id: valve-pit, name: {en: Valve pit, fa: حوضچه شیر}}
+          - {id: manhole, name: {en: Manhole or inspection chamber, fa: منهول}}
+
+      - id: pond
+        name: {en: Pond, fa: برکه}
+        types:
+          - {id: lined, name: {en: Lined earthen pond, fa: خاکی با لاینر}}
+          - {id: unlined, name: {en: Unlined earthen pond, fa: خاکی بدون لاینر}}
+
+      - id: bed
+        name: {en: Bed, fa: بستر}
+        types:
+          - {id: sand-drying, name: {en: Sand drying bed, fa: بستر ماسه‌ای}}
+          - {id: paved-drying, name: {en: Paved drying bed, fa: بستر بتنی}}
+          - {id: reed, name: {en: Reed bed, fa: بستر نیزار}}
+
+      - id: pad
+        name: {en: Hardstanding, fa: سکو و محوطه‌سازی}
+        types:
+          - {id: paved-pad, name: {en: Paved storage pad, fa: سکوی بتنی دپو}}
+          - {id: road, name: {en: Plant road, fa: جاده داخلی}}
+          - {id: platform, name: {en: Platform or walkway, fa: سکو و راهرو}}
+
+      - id: building
+        name: {en: Building, fa: ساختمان}
+        types:
+          - {id: concrete-frame, name: {en: Concrete frame, fa: اسکلت بتنی}}
+          - {id: steel-frame, name: {en: Steel frame, fa: اسکلت فلزی}}
+          - {id: masonry, name: {en: Masonry, fa: مصالح بنایی}}
+          - {id: prefabricated, name: {en: Prefabricated or container, fa: پیش‌ساخته و کانتینری}}
+
+  # ===========================================================================
+  - id: mobile
+    name: {en: Mobile equipment, fa: تجهیزات سیار}
+    note: Mobile and portable assets have no position. See spec/03-placement-rules.md, rule P2.
+    classes:
+
+      - id: vehicle
+        name: {en: Vehicle, fa: خودرو}
+        types:
+          - {id: car, name: {en: Car, fa: سواری}}
+          - {id: pickup, name: {en: Pickup, fa: وانت}}
+          - {id: truck, name: {en: Truck, fa: کامیون}}
+          - {id: vacuum-tanker, name: {en: Vacuum tanker, fa: تانکر لجن‌کش}}
+          - {id: loader, name: {en: Loader, fa: لودر}}
+          - {id: forklift, name: {en: Forklift, fa: لیفتراک}}
+          - {id: tractor, name: {en: Tractor, fa: تراکتور}}
+
+      - id: portable-equipment
+        name: {en: Portable equipment, fa: تجهیزات قابل حمل}
+        types:
+          - {id: portable-pump, name: {en: Portable pump, fa: پمپ سیار}}
+          - {id: portable-generator, name: {en: Portable generator, fa: مولد سیار}}
+          - {id: portable-meter, name: {en: Portable meter, fa: دستگاه اندازه‌گیری پرتابل}}
+          - {id: portable-gas-detector, name: {en: Portable gas detector, fa: گازسنج پرتابل}}
+          - {id: breathing-apparatus, name: {en: Breathing apparatus, fa: دستگاه تنفسی}}
+          - {id: condition-monitoring, name: {en: Condition monitoring instrument, fa: دستگاه پایش وضعیت}}
